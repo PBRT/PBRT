@@ -6,6 +6,10 @@
   "scripts": {
     "test": "test"
   },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/PBRT/es6-website.git"
+  },
   "keywords": [
     "react",
     "es6"
@@ -17,5 +21,15 @@
     "babel-loader": "^5.3.2",
     "stylus-loader": "^1.2.1",
     "webpack-dev-server": "^1.10.1"
+  },
+  "dependencies": {
+    "eslint": "^1.3.1",
+    "eslint-loader": "^1.0.0",
+    "eslint-plugin-react": "^3.3.1",
+    "jquery": "^2.1.4",
+    "react": "^0.13.3",
+    "style-loader": "^0.12.3",
+    "stylus": "^0.52.4",
+    "underscore": "^1.8.3"
   }
 }

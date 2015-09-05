@@ -65,7 +65,7 @@
     "vars-on-top": 0, // should be true later
     "dot-notation": 0, // could be: [2, {"allowPattern": "^[a-z0-9]+(_[a-z0-9]+)+$"}],
     "space-in-parens": 1,
-    "space-before-function-paren": 1,
+    "space-before-function-paren": 0,
 
     // react
     "react/display-name": 0,
