@@ -1,14 +1,4 @@
-import './style/app.styl';
-import 'velocity-animate';
-import 'bootstrap-webpack';
-import Expertise from './modules/expertise/expertise.jsx';
-import Method from './modules/method/method.jsx';
-import Projects from './modules/projects/projects.jsx';
-import Experience from './modules/experience/experience.jsx';
-import Heroshot from 'heroshot/heroshot.jsx';
-
-// Main class - App
-class App extends React.Component {
+class ViewportHandler extends React.Component{
   constructor(props) {
     super(props);
     this.state = {
@@ -22,7 +12,6 @@ class App extends React.Component {
     this.isTablet = this.isTablet.bind(this);
     this.isDesktop = this.isDesktop.bind(this);
     this.isTouchDevice = this.isTouchDevice(this);
-    this.handleScroll = this.handleScroll.bind(this);
     this.handleStyle = this.handleStyle.bind(this);
     this.handleResize = this.handleResize.bind(this);
     this.debouncedHandleResize = _.debounce(() => {this.handleResize();}, UI.wait);
@@ -38,13 +27,13 @@ class App extends React.Component {
     };
   }
   isMobile() {
-    return (window.innerWidth < UI.breakpointMobileJS);
+    return (window.innerWidth < UI.breakpointMobile);
   }
   isTablet() {
-    return (!this.isMobile() && (window.innerWidth < UI.breakpointTabletJS));
+    return (!this.isMobile() && (window.innerWidth < UI.breakpointTablet));
   }
   isDesktop() {
-    return (!this.isMobile() && !this.isTablet());
+    return (!this.isMobile() && !this.isTablet() && (window.innerWidth < UI.breakpointDesktop));
   }
   isTouchDevice() {
     return 'ontouchstart' in window // works on most browsers
@@ -71,7 +60,7 @@ class App extends React.Component {
     window.removeEventListener('scroll', this.handleScroll);
   }
   handleStyle(style) {
-    let mobile = this.getViewportStyle(style);
+    let mobile = this.getMobileStyle(style);
     let {tablet, desktop} = style;
     let responsiveStyle;
 
@@ -98,23 +87,11 @@ class App extends React.Component {
     return mobileObject;
   }
   render() {
-    return (
-      <div>
-        <Heroshot />
-        <Expertise
-          isLast={false} />
-        <Projects
-          isLast={false} />
-        <Method
-          isLast={false} />
-        <Experience
-          isLast={false} />
-      </div>
-    );
+    return (<div>{this.props.dynamicComp}</div>);
   }
 }
 
-App.childContextTypes = {
+ViewportHandler.childContextTypes = {
   isMobile: React.PropTypes.bool.isRequired,
   isTablet: React.PropTypes.bool.isRequired,
   isDesktop: React.PropTypes.bool.isRequired,
@@ -123,4 +100,4 @@ App.childContextTypes = {
   s: React.PropTypes.func.isRequired,
 };
 
-React.render (<App/>,document.body);
+
