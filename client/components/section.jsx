@@ -39,6 +39,7 @@ function getStyle() {
   return {
     container: {
       margin: 'auto',
+      position: 'relative',
       maxWidth: UI.widthMobile,
       padding: '60px 15px 90px',
       tablet: {

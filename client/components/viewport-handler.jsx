@@ -2,11 +2,12 @@ class ViewportHandler extends React.Component{
   constructor(props) {
     super(props);
     this.state = {
+      hasBeenResized: false,
       isMobile: this.isMobile(),
       isTablet: this.isTablet(),
       isDesktop: this.isDesktop(),
-      isTouchDevice: this.isTouchDevice(),
       scrollPosition: window.pageYOffset,
+      isTouchDevice: this.isTouchDevice(),
     };
     this.isMobile = this.isMobile.bind(this);
     this.isTablet = this.isTablet.bind(this);
@@ -22,6 +23,7 @@ class ViewportHandler extends React.Component{
       isTablet: this.state.isTablet,
       isDesktop: this.state.isDesktop,
       isTouchDevice: this.state.isTouchDevice,
+      hasBeenResized: this.state.hasBeenResized,
       scrollPosition: this.state.scrollPosition,
       s: this.handleStyle,
     };
@@ -47,6 +49,7 @@ class ViewportHandler extends React.Component{
       isMobile: this.isMobile(),
       isTablet: this.isTablet(),
       isDesktop: this.isDesktop(),
+      hasBeenResized: !this.state.hasBeenResized,
     });
   }
   componentDidMount() {
@@ -96,6 +99,7 @@ ViewportHandler.childContextTypes = {
   isTablet: React.PropTypes.bool.isRequired,
   isDesktop: React.PropTypes.bool.isRequired,
   isTouchDevice: React.PropTypes.bool.isRequired,
+  hasBeenResized: React.PropTypes.bool.isRequired,
   scrollPosition: React.PropTypes.number.isRequired,
   s: React.PropTypes.func.isRequired,
 };

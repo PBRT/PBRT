@@ -19,6 +19,8 @@
   color: darkGrey
 .text-white
   color: whiteBg
+.text-blue
+  color: lightBlue
 
 .title
   font-size: mobileXXXL
@@ -46,15 +48,38 @@
     font-size: desktopXL
 
 .body
-  font-size: mobileLG
+  font-size: mobileMD
+  font-weight: fontNormal
+  line-height: 25px
+  @media (min-width: breakpointMobile)
+    font-size: tabletMD
+    line-height: 25px
+  @media (min-width: breakpointTablet)
+    font-size: desktopMD
+    line-height: 25px
+
+.caption
+  font-size: mobileSM
   font-weight: fontNormal
   line-height: 25px
   @media (min-width: breakpointMobile)
     font-size: tabletSM
     line-height: 25px
   @media (min-width: breakpointTablet)
-    font-size: desktopXS
+    font-size: desktopSM
     line-height: 25px
+
+.small
+  font-size: mobileXS
+  font-weight: fontNormal
+  line-height: 20px
+  @media (min-width: breakpointMobile)
+    font-size: tabletXS
+    line-height: 20px
+  @media (min-width: breakpointTablet)
+    font-size: desktopXS
+    line-height: 20px
+
 
 .title-negative
   @extend .title

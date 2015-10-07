@@ -4,6 +4,106 @@
 		"selected_items":
 		[
 			[
+				"padding",
+				"paddingBottom"
+			],
+			[
+				"pr",
+				"PropTypes"
+			],
+			[
+				"nex",
+				"nextContext"
+			],
+			[
+				"ha",
+				"hasBeenResized"
+			],
+			[
+				"pad",
+				"paddingLeft"
+			],
+			[
+				"cont",
+				"container"
+			],
+			[
+				"is",
+				"isRequired"
+			],
+			[
+				"next",
+				"nextProps"
+			],
+			[
+				"com",
+				"computeLineHeight"
+			],
+			[
+				"line",
+				"lineHeight"
+			],
+			[
+				"col",
+				"col-xs-12"
+			],
+			[
+				"tech",
+				"techsColor"
+			],
+			[
+				"default",
+				"defaultStyle"
+			],
+			[
+				"te",
+				"techsColor"
+			],
+			[
+				"text",
+				"textAlign"
+			],
+			[
+				"paddingT",
+				"paddingRight"
+			],
+			[
+				"class",
+				"className"
+			],
+			[
+				"des",
+				"desktop"
+			],
+			[
+				"in",
+				"infoContainer"
+			],
+			[
+				"sub",
+				"subtitle"
+			],
+			[
+				"ti",
+				"title"
+			],
+			[
+				"im",
+				"imageSrc"
+			],
+			[
+				"sco",
+				"scrollPosition"
+			],
+			[
+				"tr",
+				"triggerAnimation"
+			],
+			[
+				"get",
+				"getSpringProps"
+			],
+			[
 				"image",
 				"imageDesktop"
 			],
@@ -12,20 +112,12 @@
 				"widthImage"
 			],
 			[
-				"is",
-				"isDesktop"
-			],
-			[
 				"prev",
 				"prevContext"
 			],
 			[
 				"compo",
 				"componentDidUpdate"
-			],
-			[
-				"tr",
-				"TransitionMotion"
 			],
 			[
 				"an",
@@ -42,10 +134,6 @@
 			[
 				"log",
 				"logStyle"
-			],
-			[
-				"text",
-				"textStyle"
 			],
 			[
 				"tet",
@@ -76,10 +164,6 @@
 				"componentDidUpdate"
 			],
 			[
-				"nex",
-				"nextState"
-			],
-			[
 				"sli",
 				"slideDown"
 			],
@@ -88,20 +172,12 @@
 				"isFixed"
 			],
 			[
-				"next",
-				"nextState"
-			],
-			[
 				"bran",
 				"brandWhite"
 			],
 			[
 				"bo",
 				"boxShadow"
-			],
-			[
-				"col",
-				"colContainer"
 			],
 			[
 				"car",
@@ -140,20 +216,12 @@
 				"refName"
 			],
 			[
-				"line",
-				"lineStyle"
-			],
-			[
 				"sec",
 				"secondImage"
 			],
 			[
 				"i",
 				"imageContainer"
-			],
-			[
-				"cont",
-				"context"
 			],
 			[
 				"arro",
@@ -186,10 +254,6 @@
 			[
 				"CT",
 				"CTASection"
-			],
-			[
-				"des",
-				"description"
 			],
 			[
 				"bac",
@@ -292,10 +356,6 @@
 				"currentSubscription"
 			],
 			[
-				"get",
-				"getCurrentSubscription"
-			],
-			[
 				"work",
 				"workAngelUrlErrorMessage"
 			],
@@ -314,10 +374,6 @@
 			[
 				"optin",
 				"options"
-			],
-			[
-				"ti",
-				"timestampToString"
 			],
 			[
 				"Prop",
@@ -424,10 +480,6 @@
 				"input-sortcode"
 			],
 			[
-				"in",
-				"input-specific"
-			],
-			[
 				"num",
 				"numberText"
 			],
@@ -462,63 +514,35 @@
 			[
 				"onAc",
 				"onAccountNumberChange"
-			],
-			[
-				"onPo",
-				"onPasswordBlur"
-			],
-			[
-				"onPost",
-				"onPostCodeBlur"
-			],
-			[
-				"onP",
-				"onPhoneNumberBlur"
-			],
-			[
-				"onPho",
-				"onPhoneNumberBlur"
-			],
-			[
-				"onPh",
-				"onPhoneNumberChange"
-			],
-			[
-				"onI",
-				"onIndustryTypeBlur"
-			],
-			[
-				"onIt",
-				"onIndustryTypeChange"
-			],
-			[
-				"onE",
-				"onEmployeesNumberBlur"
-			],
-			[
-				"onEm",
-				"onEmployeesNumberBlur"
-			],
-			[
-				"onWo",
-				"onWorkAngelUrlBlur"
-			],
-			[
-				"onWor",
-				"onWorkAngelUrlChange"
-			],
-			[
-				"onC",
-				"onCompanyNameBlur"
-			],
-			[
-				"onCo",
-				"onCompanyNameBlur"
 			]
 		]
 	},
 	"buffers":
 	[
+		{
+			"file": "client/modules/experience/experience.jsx",
+			"settings":
+			{
+				"buffer_size": 3012,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "client/modules/experience/assets/line.svg",
+			"settings":
+			{
+				"buffer_size": 154,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "client/components/section.jsx",
+			"settings":
+			{
+				"buffer_size": 1748,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -661,10 +685,34 @@
 	},
 	"expanded_folders":
 	[
-		"/Users/pierre/pbrt"
+		"/Users/pierre/pbrt",
+		"/Users/pierre/pbrt/client",
+		"/Users/pierre/pbrt/client/components",
+		"/Users/pierre/pbrt/client/modules",
+		"/Users/pierre/pbrt/client/modules/experience",
+		"/Users/pierre/pbrt/client/modules/experience/assets",
+		"/Users/pierre/pbrt/client/modules/projects",
+		"/Users/pierre/pbrt/client/utils"
 	],
 	"file_history":
 	[
+		"/Users/pierre/pbrt/webpack.config.js",
+		"/Users/pierre/pbrt/client/modules/experience/assets/line.svg",
+		"/Users/pierre/pbrt/client/components/viewport-handler.jsx",
+		"/Users/pierre/pbrt/client/app.jsx",
+		"/Users/pierre/pbrt/client/utils/utils-style.js",
+		"/Users/pierre/pbrt/client/modules/experience/item.jsx",
+		"/Users/pierre/pbrt/client/modules/projects/item.jsx",
+		"/Users/pierre/pbrt/client/modules/projects/projects.jsx",
+		"/Users/pierre/pbrt/client/modules/projects/tech.jsx",
+		"/Users/pierre/pbrt/client/modules/projects/projects.constant.js",
+		"/Users/pierre/pbrt/client/modules/expertise/item.jsx",
+		"/Users/pierre/pbrt/client/modules/expertise/expertise.jsx",
+		"/Users/pierre/pbrt/client/style/variables.styl",
+		"/Users/pierre/pbrt/client/style/typography.styl",
+		"/Users/pierre/pbrt/client/components/heroshot/heroshot.jsx",
+		"/Users/pierre/pbrt/client/modules/method/method.jsx",
+		"/Users/pierre/pbrt/client/modules/experience/experience.jsx",
 		"/Users/pierre/workangel/wa-zeus/app/components/santander/pages/landing/landing.jsx",
 		"/Users/pierre/workangel/wa-zeus/app/components/santander/pages/landing/modules/heroshot/button.jsx",
 		"/Users/pierre/workangel/wa-zeus/app/components/santander/pages/features/features.jsx",
@@ -775,28 +823,11 @@
 		"/Users/pierre/workangel/wa-zeus/app/components/santander/pages/features/modules/headline.jsx",
 		"/Users/pierre/workangel/wa-zeus/app/components/santander/components/footer/bottom-mobile.jsx",
 		"/Users/pierre/workangel/wa-zeus/app/components/santander/components/footer/link-mobile.jsx",
-		"/Users/pierre/workangel/wa-zeus/app/components/santander/components/cta-signup/cta-signup.jsx",
-		"/Users/pierre/workangel/wa-zeus/app/components/santander/components/cta-section/cta-section.jsx",
-		"/Users/pierre/workangel/wa-zeus/app/components/santander/pages/features/modules/cta-pricing.jsx",
-		"/Users/pierre/workangel/wa-zeus/app/components/santander/pages/pricing/modules/table-desktop/line-section.jsx",
-		"/Users/pierre/workangel/wa-zeus/app/components/santander/pages/pricing/modules/table-desktop/line-item.jsx",
-		"/Users/pierre/workangel/wa-zeus/app/common/globals/ui-variables.js",
-		"/Users/pierre/workangel/wa-zeus/app/styles/ui-variables.styl",
-		"/Users/pierre/workangel/wa-zeus/app/config.js",
-		"/Users/pierre/workangel/wa-zeus/app/components/santander/santander.module.js",
-		"/Users/pierre/workangel/wa-zeus/app/components/account/account-billing-payments.jade",
-		"/Users/pierre/workangel/wa-zeus/app/components/settings/settings.styl",
-		"/Users/pierre/workangel/wa-zeus/build/bower_components/angular-ui-bootstrap-bower/ui-bootstrap-tpls.js",
-		"/Users/pierre/workangel/wa-zeus/app/components/account/account.styl",
-		"/Users/pierre/workangel/wa-zeus/app/components/account/modal/pricing.jade",
-		"/Users/pierre/workangel/wa-zeus/app/components/account/plan/plan.styl",
-		"/Users/pierre/workangel/wa-zeus/app/components/account/plan/tiles/tile-lite.jsx",
-		"/Users/pierre/workangel/wa-zeus/app/components/dashboard/widgets/opt-in.jsx",
-		"/Users/pierre/workangel/wa-zeus/app/components/account/account-billing-pricing.jade"
+		"/Users/pierre/workangel/wa-zeus/app/components/santander/components/cta-signup/cta-signup.jsx"
 	],
 	"find":
 	{
-		"height": 23.0
+		"height": 35.0
 	},
 	"find_in_files":
 	{
@@ -918,6 +949,13 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"isDesktop",
+			"isTablet",
+			"isMobile",
+			"hasBeenResized",
+			"hasb",
+			"relative",
+			"re",
 			"this.props",
 			"isTouchDevice",
 			"style",
@@ -1038,14 +1076,7 @@
 			"$templateCache.put(\"template/tabs/tabs.ht",
 			"tabs",
 			"Cookies",
-			"cookie",
-			"jumbotronDisplay",
-			"Storage.s",
-			"openModal",
-			"(2)",
-			"force(",
-			"forceto",
-			"forcedto"
+			"cookie"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1073,8 +1104,108 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "client/modules/experience/experience.jsx",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3012,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1140,
+								1140
+							]
+						],
+						"settings":
+						{
+							"editorconfig": true,
+							"ensure_newline_at_eof_on_save": true,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true,
+							"trim_trailing_white_space_on_save": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 372.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "client/modules/experience/assets/line.svg",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 154,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								131,
+								131
+							]
+						],
+						"settings":
+						{
+							"editorconfig": true,
+							"ensure_newline_at_eof_on_save": true,
+							"syntax": "Packages/XML/XML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true,
+							"trim_trailing_white_space_on_save": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "client/components/section.jsx",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1748,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1179,
+								1179
+							]
+						],
+						"settings":
+						{
+							"editorconfig": true,
+							"ensure_newline_at_eof_on_save": true,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true,
+							"trim_trailing_white_space_on_save": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 463.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -1126,6 +1257,42 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"webpac",
+				"webpack.config.js"
+			],
+			[
+				"view",
+				"client/components/viewport-handler.jsx"
+			],
+			[
+				"sectio",
+				"client/components/section.jsx"
+			],
+			[
+				"va",
+				"client/style/variables.styl"
+			],
+			[
+				"typ",
+				"client/style/typography.styl"
+			],
+			[
+				"var",
+				"client/style/variables.styl"
+			],
+			[
+				"viwe",
+				"client/components/viewport-handler.jsx"
+			],
+			[
+				"variables",
+				"client/style/variables.styl"
+			],
+			[
+				"pro",
+				"client/modules/projects/projects.constant.js"
+			],
 			[
 				"sant",
 				"app/components/santander/santander.jsx"
@@ -1531,10 +1698,6 @@
 				"app/components/santander/pages/pricing/modules/table-desktop/table-desktop.jsx"
 			],
 			[
-				"view",
-				"app/common/react-components/viewport-handler-comp/viewport-handler-comp.jsx"
-			],
-			[
 				"pric",
 				"app/components/santander/pages/pricing/pricing.jsx"
 			],
@@ -1605,38 +1768,6 @@
 			[
 				"jumbotro",
 				"app/common/react-components/jumbotron/jumbotron.jsx"
-			],
-			[
-				"account.pa",
-				"app/components/account/account-billing-payments.jade"
-			],
-			[
-				"setting",
-				"app/components/settings/settings.styl"
-			],
-			[
-				"your",
-				"app/components/account/plan/before-expire/your-plan.jsx"
-			],
-			[
-				"tile-",
-				"app/components/account/plan/tiles/tile-lite.jsx"
-			],
-			[
-				"tile",
-				"app/components/account/plan/tiles/tile-premium.jsx"
-			],
-			[
-				"inde",
-				"app/index.jade"
-			],
-			[
-				"psot",
-				"app/components/header/post-login.jade"
-			],
-			[
-				"header.ja",
-				"app/components/header/header.jade"
 			]
 		],
 		"width": 0.0

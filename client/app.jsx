@@ -1,17 +1,19 @@
+import 'bootstrap-webpack';
 import './style/app.styl';
 import 'velocity-animate';
-import 'bootstrap-webpack';
 import Expertise from './modules/expertise/expertise.jsx';
 import Method from './modules/method/method.jsx';
 import Projects from './modules/projects/projects.jsx';
 import Experience from './modules/experience/experience.jsx';
 import Heroshot from 'heroshot/heroshot.jsx';
+import Footer from './modules/footer/footer.jsx';
 
 // Main class - App
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      hasBeenResized: false,
       isMobile: this.isMobile(),
       isTablet: this.isTablet(),
       isDesktop: this.isDesktop(),
@@ -33,6 +35,7 @@ class App extends React.Component {
       isTablet: this.state.isTablet,
       isDesktop: this.state.isDesktop,
       isTouchDevice: this.state.isTouchDevice,
+      hasBeenResized: this.state.hasBeenResized,
       scrollPosition: this.state.scrollPosition,
       s: this.handleStyle,
     };
@@ -58,6 +61,7 @@ class App extends React.Component {
       isMobile: this.isMobile(),
       isTablet: this.isTablet(),
       isDesktop: this.isDesktop(),
+      hasBeenResized: !this.state.hasBeenResized,
     });
   }
   componentDidMount() {
@@ -109,6 +113,7 @@ class App extends React.Component {
           isLast={false} />
         <Experience
           isLast={false} />
+        <Footer />
       </div>
     );
   }
@@ -119,6 +124,7 @@ App.childContextTypes = {
   isTablet: React.PropTypes.bool.isRequired,
   isDesktop: React.PropTypes.bool.isRequired,
   isTouchDevice: React.PropTypes.bool.isRequired,
+  hasBeenResized: React.PropTypes.bool.isRequired,
   scrollPosition: React.PropTypes.number.isRequired,
   s: React.PropTypes.func.isRequired,
 };

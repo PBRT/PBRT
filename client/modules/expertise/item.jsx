@@ -12,7 +12,7 @@ export default class Item extends React.Component{
   }
   componentDidUpdate(prevProps, prevState, prevContext) {
     if (prevContext.scrollPosition !== this.context.scrollPosition) {
-      if (this.context.scrollPosition > $(React.findDOMNode(this)).position().top - 400) {
+      if (this.context.scrollPosition > $(React.findDOMNode(this)).position().top + 100) {
         this.setState({isVisible: true});
       }
     }
@@ -39,6 +39,7 @@ export default class Item extends React.Component{
     return (
       <Motion {...this.getSpringProps()}>
         {interpolated => {
+          console.log(interpolated);
           let contain = _.extend(containerStyle, {
             opacity: interpolated.opacity,
             transform: 'translateY(' + interpolated.top + 'px)',
