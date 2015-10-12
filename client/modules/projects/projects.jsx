@@ -1,5 +1,6 @@
 import Section from 'section.jsx';
 import Item from './item.jsx';
+
 var Masonry = require('react-masonry-component')(React);
 import {list} from './projects.constant.js';
 
@@ -14,12 +15,7 @@ export default class Projects extends React.Component{
         <Item
           key={index}
           isLast={(list.length -1) === index}
-          imageSrc={require('./assets/' + item.imageSrc)}
-          title={item.name}
-          link={item.link}
-          description={item.description}
-          techsColor={item.techsColor}
-          techs={item.techs}/>
+          item={item}/>
       );
     });
   }

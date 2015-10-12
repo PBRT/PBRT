@@ -36,6 +36,7 @@ Button.contextTypes = {
 
 Button.propTypes = {
   containerClass: React.PropTypes.string,
+  action: React.PropTypes.func,
 };
 
 function getStyle() {

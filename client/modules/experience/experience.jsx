@@ -6,11 +6,7 @@ var s = getStyle();
 export default class Experience extends React.Component{
   constructor(props) {
     super(props);
-    this.state = {
-      lineHeight: 700,
-    };
     this.renderItems = this.renderItems.bind(this);
-    this.computeLineHeight = this.computeLineHeight.bind(this);
   }
   renderItems() {
     return experiences.map((item, index) => {
@@ -21,20 +17,10 @@ export default class Experience extends React.Component{
           isLeft={index % 2 === 0}
           title={item.title}
           subtitle={item.subtitle}
+          icon={item.icon}
           techs={item.technologies} />
       );
     });
-  }
-  computeLineHeight() {
-    return ($(React.findDOMNode(this.refs.container)).height() + 100);
-  }
-  componentDidMount() {
-    this.setState({lineHeight: this.computeLineHeight()});
-  }
-  componentDidUpdate(nextProps, nextState, nextContext) {
-    if (this.context.hasBeenResized !== nextContext.hasBeenResized) {
-      this.setState({lineHeight: this.computeLineHeight()});
-    }
   }
   render() {
 
@@ -45,11 +31,11 @@ export default class Experience extends React.Component{
           subtitle='2+ years of experience in web development. Coming from a MS Degree in Computer Science'
           isLast={this.props.isLast}
           backgroundColor={UI.lightGrey}>
-          <div ref='container' style={this.context.s(s.itemsContainer)}>
-            <div style={this.context.s(s.today)} className='text-blue caption text-bold'>TODAY</div>
-            <div style={_.extend(this.context.s(s.imageContainer), {height: this.state.lineHeight})}>
+          <div style={this.context.s(s.itemsContainer)}>
+            <div style={_.extend(this.context.s(s.imageContainer), {height: this.context.isDesktop ? 1160 : 1250})}>
               <img style={s.line} src={require('./assets/line.svg')}/>
             </div>
+            <div style={this.context.s(s.today)} className='text-blue caption text-bold'>TODAY</div>
             <div style={this.context.s(s.items)}>
               {this.renderItems()}
             </div>
@@ -63,7 +49,7 @@ export default class Experience extends React.Component{
 
 Experience.contextTypes = {
   s: React.PropTypes.func.isRequired,
-  hasBeenResized: React.PropTypes.bool.isRequired,
+  isDesktop: React.PropTypes.bool.isRequired,
 };
 Experience.propTypes = {
   isLast: React.PropTypes.bool.isRequired,
@@ -74,7 +60,7 @@ function getStyle() {
     itemsContainer: {
       display: 'inline-block',
       position: 'relative',
-      paddingLeft: 30,
+      paddingLeft: 10,
       marginTop: 10,
       tablet: {
         display: 'table',
@@ -117,7 +103,7 @@ function getStyle() {
       display: 'none',
       tablet: {
         display: 'block',
-        top: -20,
+        top: -30,
       },
       desktop: {
         display: 'block',
@@ -132,11 +118,11 @@ function getStyle() {
       display: 'none',
       tablet: {
         display: 'block',
-        bottom: -40
+        bottom: -20
       },
       desktop: {
         display: 'block',
-        bottom: -60
+        bottom: -20
       },
     },
   };

@@ -1,6 +1,5 @@
 var s = getStyle();
-import {spring} from 'react-motion';
-import {Motion} from 'react-motion';
+import {spring, Motion} from 'react-motion';
 
 export default class Item extends React.Component{
   constructor(props) {
@@ -39,7 +38,6 @@ export default class Item extends React.Component{
     return (
       <Motion {...this.getSpringProps()}>
         {interpolated => {
-          console.log(interpolated);
           let contain = _.extend(containerStyle, {
             opacity: interpolated.opacity,
             transform: 'translateY(' + interpolated.top + 'px)',

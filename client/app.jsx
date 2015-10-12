@@ -7,6 +7,9 @@ import Projects from './modules/projects/projects.jsx';
 import Experience from './modules/experience/experience.jsx';
 import Heroshot from 'heroshot/heroshot.jsx';
 import Footer from './modules/footer/footer.jsx';
+import Recognition from './modules/recognition/recognitions.jsx';
+import Navbar from './components/navbar/navbar.jsx';
+import Contact from './modules/contact/contact.jsx';
 
 // Main class - App
 class App extends React.Component {
@@ -20,6 +23,7 @@ class App extends React.Component {
       isTouchDevice: this.isTouchDevice(),
       scrollPosition: window.pageYOffset,
     };
+    this.scrollTo = this.scrollTo.bind(this);
     this.isMobile = this.isMobile.bind(this);
     this.isTablet = this.isTablet.bind(this);
     this.isDesktop = this.isDesktop.bind(this);
@@ -55,6 +59,9 @@ class App extends React.Component {
   }
   handleScroll() {
     this.setState({scrollPosition: window.pageYOffset});
+  }
+  scrollTo(ref, offset) {
+    $(React.findDOMNode(this.refs[ref])).velocity('scroll', {offset: offset, duration: 400, easing: 'easeInOutExpo'});
   }
   handleResize() {
     this.setState({
@@ -104,8 +111,10 @@ class App extends React.Component {
   render() {
     return (
       <div>
+        <Navbar scrollTo={this.scrollTo}/>
         <Heroshot />
         <Expertise
+          ref='expertise'
           isLast={false} />
         <Projects
           isLast={false} />
@@ -113,6 +122,10 @@ class App extends React.Component {
           isLast={false} />
         <Experience
           isLast={false} />
+        <Recognition />
+        <Contact
+          ref='contact'
+          isLast={true} />
         <Footer />
       </div>
     );

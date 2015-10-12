@@ -1,24 +1,32 @@
 var s = getStyle();
 import {spring} from 'react-motion';
 import {Motion} from 'react-motion';
+var Modal = require('react-modal');
+import ModalContainer from './modal-container.jsx';
 import Tech from './tech.jsx';
 
 export default class Item extends React.Component{
   constructor(props) {
     super(props);
+    this.handleModal = this.handleModal.bind(this);
     this.renderTechs = this.renderTechs.bind(this);
     this.handleHover = this.handleHover.bind(this);
     this.state = {
-      isHover: false
+      isHover: false,
+      modalIsOpen: false,
     };
   }
+  handleModal(val) {
+    $('body').css('overflow', val ? 'hidden' : 'scroll');
+    this.setState({modalIsOpen: val});
+  }
   renderTechs() {
-    return this.props.techs.map((item, index) => {
+    return this.props.item.techs.map((item, index) => {
       return (
         <Tech
           item={item}
           key={index}
-          techsColor={this.props.techsColor} />
+          techsColor={this.props.item.techsColor} />
       );
     });
   }
@@ -43,59 +51,81 @@ export default class Item extends React.Component{
       this.setState({isHover: active});
     }
   }
+  componentDidUpdate(prevProps, prevState, prevContext) {
+    if((prevContext.isDesktop !== this.context.isDesktop) && !this.context.isDesktop) {
+      this.handleModal(false);
+    }
+  }
   render() {
 
     return (
-      <div
-        ref='container'
-        onMouseEnter={this.handleHover.bind(null, true)}
-        onMouseLeave={this.handleHover.bind(null, false)}
-        className='col-md-4 col-sm-6 col-xs-12'
-        style={this.context.s(s.container)}
-        target='_blank'>
-        <Motion {...this.getSpringProps()}>
-          {tweenCollection => {
-            let styleImage = _.extend(this.context.s(s.img), {
-              transform: 'scale(' + tweenCollection.scale + ')',
-              opacity: tweenCollection.imageOpacity,
-            });
-            let styleTitle = _.extend(this.context.s(s.title), {
-              marginTop: tweenCollection.marginTop + '%',
-              opacity: tweenCollection.opacity,
-            });
-            let styleSubtitle = _.extend(this.context.s(s.subtitle), {
-              opacity: tweenCollection.opacity,
-            });
-            return (
-              <div style={this.context.s(s.subcontainer)}>
-                <div
-                  style={this.context.s(s.containerImage)}
-                  onMouseOver={this.handleHover.bind(null, true)}
-                  onMouseOut={this.handleHover.bind(null, false)}>
-                  <img
-                    style={styleImage}
-                    src={this.props.imageSrc} />
-                  {!this.context.isDesktop ?
-                    <div style={this.context.s(s.infoContainer)}>
-                      <div style={this.context.s(s.title)}>{this.props.title}</div>
-                      <div style={this.context.s(s.subtitle)}>{this.props.description}</div>
-                      <div style={this.context.s(s.skills)}>
-                        {this.renderTechs()}
+        <div
+          ref='container'
+          onMouseEnter={this.handleHover.bind(null, true)}
+          onMouseLeave={this.handleHover.bind(null, false)}
+          className='col-md-4 col-sm-6 col-xs-12'
+          style={this.context.s(s.container)}
+          target='_blank'>
+            <Modal
+              style={{overlay: {backgroundColor: 'none', overflow: 'hidden'}}}
+              closeTimeoutMS={150}
+              className="Modal__Bootstrap modal-dialog"
+              isOpen={this.state.modalIsOpen}
+              onRequestClose={this.handleModal.bind(null, false)}>
+              <ModalContainer
+                handleModal={this.handleModal}
+                item={this.props.item}/>
+            </Modal>
+          <Motion {...this.getSpringProps()}>
+            {tweenCollection => {
+              let styleImage = _.extend(this.context.s(s.img), {
+                transform: 'scale(' + (this.context.isDesktop ? tweenCollection.scale : 1) + ')',
+                opacity: this.context.isDesktop ? tweenCollection.imageOpacity : 1,
+              });
+              let styleTitle = _.extend(this.context.s(s.title), {
+                marginTop: tweenCollection.marginTop + '%',
+                opacity: tweenCollection.opacity,
+              });
+              let styleSubtitle = _.extend(this.context.s(s.subtitle), {
+                opacity: tweenCollection.opacity,
+              });
+              return (
+                <div style={this.context.s(s.subcontainer)}>
+                  <div
+                    style={this.context.s(s.containerImage)}
+                    onMouseOver={this.handleHover.bind(null, true)}
+                    onMouseOut={this.handleHover.bind(null, false)}>
+                    <a
+                      href={this.props.item.link}
+                      target='_blank'>
+                      <img
+                        style={styleImage}
+                        src={require('./assets/' + this.props.item.imageSrc)} />
+                    </a>
+                    {!this.context.isDesktop ?
+                      <div style={this.context.s(s.infoContainer)}>
+                        <div style={this.context.s(s.title)}>{this.props.item.name}</div>
+                        <div style={this.context.s(s.subtitle)}>{this.props.item.description}</div>
+                        <div style={this.context.s(s.skills)}>
+                          {this.renderTechs()}
+                        </div>
+                      </div> : ''
+                    }
+                    <div style={this.context.s(s.overlay)}>
+                      <div className='text-center text-white' style={styleTitle}>{this.props.item.name}</div>
+                      <div style={styleSubtitle}>
+                        <div
+                          style={this.context.s(s.subtitleText)}
+                          onClick={this.handleModal.bind(null, true)}
+                        >See more</div>
                       </div>
-                    </div> : ''
-                  }
-                  <div style={this.context.s(s.overlay)}>
-                    <div className='text-center text-white' style={styleTitle}>{this.props.title}</div>
-                    <div style={styleSubtitle}>
-                      <div style={this.context.s(s.subtitleText)}>See more</div>
                     </div>
                   </div>
-                </div>
-             </div>
-            );
-          }}
-        </Motion>
-      </div>
+               </div>
+              );
+            }}
+          </Motion>
+        </div>
     );
   }
 }
@@ -177,9 +207,10 @@ function getStyle() {
       cursor: 'pointer',
       position: 'relative',
       verticalAlign: 'middle',
-      width: 300,
+      width: '100%',
+      maxWidth: 300,
       tablet: {
-        width: 275,
+        maxWidth: 300,
       },
       desktop: {
         width: 270,
@@ -221,8 +252,5 @@ Item.contextTypes = {
 };
 Item.propTypes = {
   isLast: React.PropTypes.bool.isRequired,
-  imageSrc: React.PropTypes.string.isRequired,
-  link: React.PropTypes.string.isRequired,
-  title: React.PropTypes.string.isRequired,
-  techs: React.PropTypes.array.isRequired,
+  item: React.PropTypes.object.isRequired,
 };
