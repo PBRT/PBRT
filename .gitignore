@@ -1,1 +1,4 @@
 node_modules/
+pbrt.sublime-project
+pbrt.sublime-workspace
+server.js

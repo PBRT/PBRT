@@ -1,15 +1,36 @@
-// import {mergeStyle} from 'utils-style.js';
 var s = getStyle();
 
 export default class Heroshot extends React.Component{
   constructor(props) {
     super(props);
+    this.state = {
+      height: window.innerHeight - 20,
+      pathWidth: 400,
+    };
+  }
+  componentDidUpdate(prevProps, prevState, prevContext) {
+    if (prevContext.hasBeenResized !== this.context.hasBeenResized) {
+      this.setState({
+        height: window.innerHeight - 20,
+        pathWidth: ($(React.findDOMNode(this.refs.container)).width() * 0.5)
+      });
+    }
+  }
+  componentDidMount() {
+    this.setState({pathWidth: ($(React.findDOMNode(this.refs.container)).width() * 0.5)});
   }
   render() {
+    let path = 'M0,0 H' + this.state.pathWidth;
     return (
-      <div style={this.context.s(s.container)}>
+      <div ref='container' style={_.extend(this.context.s(s.container), {height: this.state.height})}>
+        <div style={this.context.s(s.overlay)}></div>
         <div style={s.name} className='title-negative text-center'> Pierre Beard </div>
-        <div className='text-center subtitle'> Front End Developer </div>
+        <div className='text-center subtitle' style={s.subtitle}> Front End Developer </div>
+        <div style={this.context.s(s.lineContainer)}>
+          <svg width='100%' height='5px'>
+            <path d={path} className='lineHero' stroke={UI.whiteBg} strokeWidth='5' fill='#2980B9'/>
+          </svg>
+        </div>
       </div>
     );
   }
@@ -17,18 +38,40 @@ export default class Heroshot extends React.Component{
 
 Heroshot.contextTypes = {
   s: React.PropTypes.func.isRequired,
+  hasBeenResized: React.PropTypes.bool.isRequired,
 };
 
 function getStyle() {
   return {
     container: {
-      height: window.innerHeight - 20,
+      minHeight: 300,
       backgroundSize: 'cover',
       backgroundPosition: 'center center',
       backgroundImage: 'url(%link%)'.replace('%link%', require('./assets/background.jpg')),
+      position: 'relative',
+      WebkitFilter: 'saturate(4)',
     },
     name: {
       paddingTop: 160,
+      position: 'relative',
+      color: UI.whiteBg,
+    },
+    subtitle: {
+      position: 'relative',
+      color: UI.whiteBg,
+    },
+    overlay: {
+      position: 'absolute',
+      width: '100%',
+      height: '100%',
+      backgroundColor: '#34495e',
+      opacity: 0.3,
+    },
+    lineContainer: {
+      position: 'absolute',
+      width: '50%',
+      left: '50%',
+      transform: 'translate3d(-50%, 0, 0)',
     },
   };
 };
