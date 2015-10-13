@@ -9,7 +9,10 @@ import Heroshot from 'heroshot/heroshot.jsx';
 import Footer from './modules/footer/footer.jsx';
 import Recognition from './modules/recognition/recognitions.jsx';
 import Navbar from './components/navbar/navbar.jsx';
+import Loader from './components/loader/loader.jsx';
 import Contact from './modules/contact/contact.jsx';
+
+var s = getStyle();
 
 // Main class - App
 class App extends React.Component {
@@ -23,6 +26,7 @@ class App extends React.Component {
       isTouchDevice: this.isTouchDevice(),
       scrollPosition: window.pageYOffset,
     };
+    this.fadeApp = this.fadeApp.bind(this);
     this.scrollTo = this.scrollTo.bind(this);
     this.isMobile = this.isMobile.bind(this);
     this.isTablet = this.isTablet.bind(this);
@@ -72,6 +76,7 @@ class App extends React.Component {
     });
   }
   componentDidMount() {
+    $(React.findDOMNode(this.refs.mainContainer)).velocity('fadeOut', 0);
     React.initializeTouchEvents(true);
     this.handleResize();
     window.addEventListener('resize', this.debouncedHandleResize);
@@ -96,6 +101,9 @@ class App extends React.Component {
 
     return responsiveStyle;
   }
+  fadeApp() {
+    $(React.findDOMNode(this.refs.mainContainer)).velocity('fadeIn', UI.duration * 10);
+  }
   getViewportStyle(styleObject) {
     var mobileObject = {};
 
@@ -111,26 +119,36 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Navbar scrollTo={this.scrollTo}/>
-        <Heroshot />
-        <Expertise
-          ref='expertise'
-          isLast={false} />
-        <Projects
-          isLast={false} />
-        <Method
-          isLast={false} />
-        <Experience
-          isLast={false} />
-        <Recognition />
-        <Contact
-          ref='contact'
-          isLast={true} />
-        <Footer />
+        <div ref='mainLoader' style={s.loader}>
+          <Loader />
+        </div>
+        <div ref='mainContainer'>
+          <Navbar scrollTo={this.scrollTo}/>
+          <Heroshot imageReady={this.fadeApp}/>
+          <Expertise ref='expertise' isLast={false} />
+          <Projects isLast={false} />
+          <Method isLast={false} />
+          <Experience isLast={false} />
+          <Recognition />
+          <Contact ref='contact' isLast={true} />
+          <Footer />
+        </div>
       </div>
     );
   }
 }
+
+function getStyle() {
+  return {
+    loader: {
+      position: 'absolute',
+      width: '100%',
+      height: '100%',
+      opacity: 0.7,
+      backgroundColor: UI.whiteBg,
+    },
+  };
+};
 
 App.childContextTypes = {
   isMobile: React.PropTypes.bool.isRequired,

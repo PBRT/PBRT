@@ -3,6 +3,7 @@ var s = getStyle();
 export default class Heroshot extends React.Component{
   constructor(props) {
     super(props);
+    this.cacheImage = this.cacheImage.bind(this);
     this.state = {
       height: window.innerHeight - 20,
       pathWidth: 400,
@@ -17,7 +18,16 @@ export default class Heroshot extends React.Component{
     }
   }
   componentDidMount() {
+    this.cacheImage();
     this.setState({pathWidth: ($(React.findDOMNode(this.refs.container)).width() * 0.5)});
+  }
+  cacheImage() {
+    let bgImg = new Image();
+    bgImg.onload = function(){
+      this.props.imageReady();
+      $(React.findDOMNode(this.refs.container)).css({backgroundImage: 'url(' + bgImg.src + ')'});
+    }.bind(this);
+    bgImg.src = require('./assets/background.jpg');
   }
   render() {
     let path = 'M0,0 H' + this.state.pathWidth;
@@ -47,7 +57,6 @@ function getStyle() {
       minHeight: 300,
       backgroundSize: 'cover',
       backgroundPosition: 'center center',
-      backgroundImage: 'url(%link%)'.replace('%link%', require('./assets/background.jpg')),
       position: 'relative',
       WebkitFilter: 'saturate(4)',
     },
