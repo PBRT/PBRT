@@ -46,7 +46,7 @@ export default class Contact extends React.Component{
       });
     } else {
       this.setState({isLoading: true});
-      $.post('http://localhost:3000/mail', {
+      $.post('/mail', {
         name: this.state.name,
         email: this.state.mail,
         details: this.state.text,

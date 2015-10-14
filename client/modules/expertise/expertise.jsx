@@ -36,7 +36,7 @@ export default class Expertise extends React.Component{
           <div className='row text-center'>
             <a
               download='PierreBeardResume'
-              href='http://localhost:8080/test.pdf'
+              href='/test.pdf'
               target='_blank'>
               <Button>
                 <span className='text-negative text-center headline' style={s.button}>Resume</span>
