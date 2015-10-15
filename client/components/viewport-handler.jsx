@@ -1,21 +1,4 @@
-import 'bootstrap-webpack';
-import './style/app.styl';
-import 'velocity-animate';
-import Expertise from './modules/expertise/expertise.jsx';
-import Method from './modules/method/method.jsx';
-import Projects from './modules/projects/projects.jsx';
-import Experience from './modules/experience/experience.jsx';
-import Heroshot from 'heroshot/heroshot.jsx';
-import Footer from './modules/footer/footer.jsx';
-import Recognition from './modules/recognition/recognitions.jsx';
-import Navbar from './components/navbar/navbar.jsx';
-import Loader from './components/loader/loader.jsx';
-import Contact from './modules/contact/contact.jsx';
-
-var s = getStyle();
-
-// Main class - App
-class App extends React.Component {
+class ViewportHandler extends React.Component{
   constructor(props) {
     super(props);
     this.state = {
@@ -23,16 +6,13 @@ class App extends React.Component {
       isMobile: this.isMobile(),
       isTablet: this.isTablet(),
       isDesktop: this.isDesktop(),
-      isTouchDevice: this.isTouchDevice(),
       scrollPosition: window.pageYOffset,
+      isTouchDevice: this.isTouchDevice(),
     };
-    this.fadeApp = this.fadeApp.bind(this);
-    this.scrollTo = this.scrollTo.bind(this);
     this.isMobile = this.isMobile.bind(this);
     this.isTablet = this.isTablet.bind(this);
     this.isDesktop = this.isDesktop.bind(this);
     this.isTouchDevice = this.isTouchDevice(this);
-    this.handleScroll = this.handleScroll.bind(this);
     this.handleStyle = this.handleStyle.bind(this);
     this.handleResize = this.handleResize.bind(this);
     this.debouncedHandleResize = _.debounce(() => {this.handleResize();}, UI.wait);
@@ -49,13 +29,13 @@ class App extends React.Component {
     };
   }
   isMobile() {
-    return (window.innerWidth < UI.breakpointMobileJS);
+    return (window.innerWidth < UI.breakpointMobile);
   }
   isTablet() {
-    return (!this.isMobile() && (window.innerWidth < UI.breakpointTabletJS));
+    return (!this.isMobile() && (window.innerWidth < UI.breakpointTablet));
   }
   isDesktop() {
-    return (!this.isMobile() && !this.isTablet());
+    return (!this.isMobile() && !this.isTablet() && (window.innerWidth < UI.breakpointDesktop));
   }
   isTouchDevice() {
     return 'ontouchstart' in window // works on most browsers
@@ -63,9 +43,6 @@ class App extends React.Component {
   }
   handleScroll() {
     this.setState({scrollPosition: window.pageYOffset});
-  }
-  scrollTo(ref, offset) {
-    $(React.findDOMNode(this.refs[ref])).velocity('scroll', {offset: offset, duration: 400, easing: 'easeInOutExpo'});
   }
   handleResize() {
     this.setState({
@@ -76,7 +53,6 @@ class App extends React.Component {
     });
   }
   componentDidMount() {
-    $(React.findDOMNode(this.refs.mainContainer)).velocity('fadeOut', 0);
     React.initializeTouchEvents(true);
     this.handleResize();
     window.addEventListener('resize', this.debouncedHandleResize);
@@ -87,7 +63,7 @@ class App extends React.Component {
     window.removeEventListener('scroll', this.handleScroll);
   }
   handleStyle(style) {
-    let mobile = this.getViewportStyle(style);
+    let mobile = this.getMobileStyle(style);
     let {tablet, desktop} = style;
     let responsiveStyle;
 
@@ -100,9 +76,6 @@ class App extends React.Component {
     }
 
     return responsiveStyle;
-  }
-  fadeApp() {
-    $(React.findDOMNode(this.refs.mainContainer)).velocity('fadeIn', UI.duration * 10);
   }
   getViewportStyle(styleObject) {
     var mobileObject = {};
@@ -117,40 +90,11 @@ class App extends React.Component {
     return mobileObject;
   }
   render() {
-    return (
-      <div>
-        <div ref='mainLoader' style={s.loader}>
-          <Loader />
-        </div>
-        <div ref='mainContainer'>
-          <Navbar scrollTo={this.scrollTo}/>
-          <Heroshot imageReady={this.fadeApp}/>
-          <Expertise ref='expertise' isLast={false} />
-          <Projects isLast={false} />
-          <Method isLast={false} />
-          <Experience isLast={false} />
-          <Recognition />
-          <Contact ref='contact' isLast={true} />
-          <Footer />
-        </div>
-      </div>
-    );
+    return (<div>{this.props.dynamicComp}</div>);
   }
 }
 
-function getStyle() {
-  return {
-    loader: {
-      position: 'absolute',
-      width: '100%',
-      height: '100%',
-      opacity: 0.7,
-      backgroundColor: UI.whiteBg,
-    },
-  };
-};
-
-App.childContextTypes = {
+ViewportHandler.childContextTypes = {
   isMobile: React.PropTypes.bool.isRequired,
   isTablet: React.PropTypes.bool.isRequired,
   isDesktop: React.PropTypes.bool.isRequired,
@@ -160,4 +104,4 @@ App.childContextTypes = {
   s: React.PropTypes.func.isRequired,
 };
 
-React.render (<App/>,document.body);
+

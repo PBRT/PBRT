@@ -18,6 +18,8 @@
     "_": true,
     "$": true,
     "React": true,
+    "UI": true,
+    "Chart": true,
   },
   "plugins": [
     "react"

@@ -1,0 +1,92 @@
+.text-center
+  text-align: center
+.text-left
+  text-align: left
+.text-right
+  text-align: right
+
+.text-light
+  font-weight: fontLight
+.text-normal
+  font-weight: fontNormal
+.text-semibold
+  font-weight: fontSemibold
+.text-bold
+  font-weight: fontBold
+.text-negative
+  color: secondary
+.text-grey
+  color: darkGrey
+.text-white
+  color: whiteBg
+.text-blue
+  color: lightBlue
+.text-green
+  color: darkGreen
+
+.title
+  font-size: mobileXXXL
+  font-weight: fontNormal
+  @media (min-width: breakpointMobile)
+    font-size: tabletXXL
+  @media (min-width: breakpointTablet)
+    font-size: desktopXXL
+
+.subtitle
+  color: darkGrey
+  font-size: mobileLG
+  font-weight: fontNormal
+  @media (min-width: breakpointMobile)
+    font-size: tabletLG
+  @media (min-width: breakpointTablet)
+    font-size: desktopLG
+
+.headline
+  font-size: mobileXL
+  font-weight: fontNormal
+  @media (min-width: breakpointMobile)
+    font-size: tabletXL
+  @media (min-width: breakpointTablet)
+    font-size: desktopXL
+
+.body
+  font-size: mobileMD
+  font-weight: fontNormal
+  line-height: 25px
+  @media (min-width: breakpointMobile)
+    font-size: tabletMD
+    line-height: 25px
+  @media (min-width: breakpointTablet)
+    font-size: desktopMD
+    line-height: 25px
+
+.caption
+  font-size: mobileSM
+  font-weight: fontNormal
+  line-height: 25px
+  @media (min-width: breakpointMobile)
+    font-size: tabletSM
+    line-height: 25px
+  @media (min-width: breakpointTablet)
+    font-size: desktopSM
+    line-height: 25px
+
+.small
+  font-size: mobileXS
+  font-weight: fontNormal
+  line-height: 20px
+  @media (min-width: breakpointMobile)
+    font-size: tabletXS
+    line-height: 20px
+  @media (min-width: breakpointTablet)
+    font-size: desktopXS
+    line-height: 20px
+
+
+.title-negative
+  @extend .title
+  color: secondary
+
+.body-negative
+  @extend .body
+  color: secondary

@@ -1,0 +1,38 @@
+@require "variables"
+@require "typography"
+@require "components/modal"
+@require "components/spinner"
+
+ @font-face
+   font-family Sofia
+   font-style normal
+   src url(font/SofiaProLight.otf)
+
+body, html
+  font-family Sofia
+  padding: 0
+  margin: 0
+  color: blackText
+
+.row
+  display: block
+  margin: auto
+
+.no-margin
+  margin: 0
+
+.no-padding
+  padding: 0
+
+.lineHero {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: dash 2s cubic-bezier(0.28, 0.5, 0.19, 0.97) forwards;
+  animation-delay: 1s;
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}

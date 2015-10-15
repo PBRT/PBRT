@@ -3,7 +3,6 @@ export default class Expertise extends React.Component{
     super(props);
   }
   render() {
-    console.log(this.context);
     return (
       <div> Expertise {this.context.display}</div>
     );
