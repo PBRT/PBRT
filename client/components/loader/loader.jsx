@@ -29,7 +29,7 @@ export default class Loader extends React.Component{
   }
   render() {
     return (
-      <div style={s.container}>
+      <div style={s.container} className='text-center'>
         <Motion  {...this.getSpringProps()}>
           {interpolated => {
             return (
@@ -61,8 +61,6 @@ function getStyle() {
       position: 'absolute',
       width: 60,
       top: '50%',
-      left: '50%',
-      transform: 'translate3d(-50%,-50%, 0)',
     },
   };
 };

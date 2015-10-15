@@ -4,7 +4,8 @@
   "description": "My personal ES6 website",
   "main": "app.js",
   "scripts": {
-    "test": "test"
+    "test": "test",
+    "build": "webpack -p"
   },
   "repository": {
     "type": "git",
@@ -31,6 +32,7 @@
     "bootstrap-webpack": "0.0.3",
     "chart.js": "^1.0.2",
     "colors": "^1.1.2",
+    "ejs": "^2.3.4",
     "eslint": "^1.3.1",
     "eslint-loader": "^1.0.0",
     "eslint-plugin-react": "^3.3.1",
@@ -45,6 +47,7 @@
     "react-masonry-component": "^1.0.4",
     "react-modal": "^0.5.0",
     "react-motion": "^0.3.0",
+    "serve-favicon": "^2.3.0",
     "style-loader": "^0.12.3",
     "stylus": "^0.52.4",
     "stylus-export-loader": "file:../stylus-export-loader",

@@ -17,7 +17,7 @@ var config = {
 
   entry: ['./client/app.jsx'],
   output: {
-    path: __dirname,
+    path: path.resolve(__dirname, 'dist', 'public'),
     filename: 'bundle.js'
   },
   module: {

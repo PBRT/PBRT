@@ -1,12 +1,15 @@
 var express = require('express');
+var path = require('path');
 var app = express();
 var bodyParser = require('body-parser');
 var mandrill = require('mandrill-api/mandrill');
+var favicon = require('serve-favicon');
 var mandrill_client = new mandrill.Mandrill(process.env.MANDRILL_KEY);
 
-app.use(express.static(__dirname + '../dist/'));
+app.use(express.static(path.resolve(__dirname, './dist/public')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(favicon(path.join(__dirname,'./dist/public','logo.ico')));
 
 app.use(function(req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
@@ -15,7 +18,7 @@ app.use(function(req, res, next) {
 });
 
 app.get('*', function (req, res) {
-  res.sendfile(__dirname + '/index.html');
+  res.sendFile(__dirname + '/index.html');
 });
 
 app.post('/mail', function(req, res) {
