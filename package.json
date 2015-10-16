@@ -50,7 +50,7 @@
     "serve-favicon": "^2.3.0",
     "style-loader": "^0.12.3",
     "stylus": "^0.52.4",
-    "stylus-export-loader": "file:../stylus-export-loader",
+    "stylus-export-loader": "git+https://git@github.com/PBRT/stylus-export-loader.git",
     "underscore": "^1.8.3",
     "url-loader": "^0.5.6",
     "velocity-animate": "^1.2.2"
