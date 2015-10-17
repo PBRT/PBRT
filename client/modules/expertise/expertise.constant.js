@@ -5,7 +5,7 @@ module.exports = {
       title: 'Front End',
       subtitle: 'Development of front-end web application with ' +
       'latest technologies such as ReactJS, Webpack or AngularJS. ' +
-      'Good knowledge of JS ES6 and all the classic lib (Jquery…)',
+      'Knowledge of JS ES6 and all the classic Javascript libraries.',
     },
     {
       imageSrc: 'responsive.jpg',
@@ -17,8 +17,9 @@ module.exports = {
     {
       imageSrc: 'ux.jpg',
       title: 'UX/UI',
-      subtitle: 'Usually working with designers, I know all the basic UX ' +
-      'patterns and UI software to build pixel perfect products like Skectch.'
+      subtitle: 'Used to work close of creative teams.' +
+      'I building reliable and functionnal apps.' +
+      'Good understanding of Analytics, UX patterns and SKETCH.'
     },
   ],
 };

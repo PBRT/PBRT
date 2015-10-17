@@ -10,11 +10,14 @@ export default class Item extends React.Component{
     };
   }
   componentDidUpdate(prevProps, prevState, prevContext) {
-    if (prevContext.scrollPosition !== this.context.scrollPosition) {
+    if ((prevContext.scrollPosition !== this.context.scrollPosition) && !this.state.isVisible) {
       if (this.context.scrollPosition > $(React.findDOMNode(this)).position().top + 100) {
         this.setState({isVisible: true});
       }
     }
+  }
+  componentDidMount() {
+    if (this.context.isMobile) { this.setState({isVisible: true}); };
   }
   getSpringProps() {
     return {
@@ -100,12 +103,15 @@ function getStyle() {
     },
     image: {
       width: '100%',
-      maxWidth: 240,
+      maxWidth: 140,
+      height: 120,
       tablet: {
         maxWidth: 180,
+        height: 150,
       },
       desktop: {
         maxWidth: 210,
+        height: 175,
       },
     },
     imageContainer: {

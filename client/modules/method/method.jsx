@@ -6,17 +6,18 @@ export default class Method extends React.Component{
     super(props);
     this.state = {
       chartData: [
-        {value: 1, color: '#4D535D'},
-        {value: 1, color: '#F8464A'},
-        {value: 1, color: '#FEB45A'},
-        {value: 1, color: '#949FB1'},
-        {value: 96, color: '#45BFBD'},
+        {label: 'Specifications', value: 1, color: '#4D535D'},
+        {label: 'Technologies analysis', value: 2, color: '#F8464A'},
+        {label: 'Design Review', value: 1, color: '#949FB1'},
+        {label: 'Deployment and test', value: 1, color: '#FEB45A'},
+        {label: 'Development', value: 96, color: '#45BFBD'},
       ],
       isVisible: false,
     };
     this.triggerAnimation = this.triggerAnimation.bind(this);
   }
   componentDidMount() {
+    if (this.context.isMobile) { this.triggerAnimation(); };
     if (this.context.scrollPosition > ($(React.findDOMNode(this)).position().top)) {
       this.triggerAnimation();
     }
@@ -43,6 +44,7 @@ export default class Method extends React.Component{
     let chartOptions = {
       segmentShowStroke: false,
       percentageInnerCutout: 65,
+      animation: !this.context.isMobile,
       animateRotate: false,
       animationEasing: 'easeInOutExpo',
       segmentStrokeColor: UI.UIGreenPastel,

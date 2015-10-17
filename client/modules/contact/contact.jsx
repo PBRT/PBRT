@@ -210,7 +210,7 @@ export default class Contact extends React.Component{
                 I just need a real mail for contacting you
               </div>
             </div>
-            <div style={this.context.s(s.inputGroup)}>
+            <div style={_.extend(this.context.s(s.inputGroup), {marginBottom: 40})}>
               <textArea
                 className='caption'
                 placeholder='Tell me everything'
@@ -266,7 +266,7 @@ function getStyle() {
     errorMsg: {
       display: 'block',
       margin: 'auto',
-      width: 290,
+      width: 250,
       marginTop: 10,
       color: UI.darkRed,
       tablet: {
@@ -277,12 +277,18 @@ function getStyle() {
       },
     },
     inputGroup: {
-      marginBottom: 40,
+      marginBottom: 20,
+      tablet: {
+        marginBottom: 40,
+      },
+      desktop: {
+        marginBottom: 40,
+      },
     },
     input: {
       display: 'block',
       margin: 'auto',
-      width: 290,
+      width: 250,
       padding: '10px 20px',
       WebkitAppearance: 'none',
       MozAppearance: 'none',
@@ -299,7 +305,7 @@ function getStyle() {
     textArea: {
       display: 'block',
       margin: 'auto',
-      width: 290,
+      width: 250,
       height: 300,
       padding: '10px 20px',
       WebkitAppearance: 'none',

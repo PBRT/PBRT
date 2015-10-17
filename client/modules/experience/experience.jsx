@@ -101,6 +101,7 @@ function getStyle() {
       left: '50%',
       transform: 'translateX(-50%)',
       display: 'none',
+      width: 6,
       tablet: {
         display: 'block',
         top: -30,
