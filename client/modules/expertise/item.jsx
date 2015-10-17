@@ -99,6 +99,7 @@ function getStyle() {
       },
       desktop: {
         textAlign: 'left',
+        fontSize: 20,
       },
     },
     image: {

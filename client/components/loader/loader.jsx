@@ -23,7 +23,7 @@ export default class Loader extends React.Component{
         scale: 1,
       },
       style:{
-        scale: spring(this.state.isBigger ? 1.1 : 1),
+        scale: spring(this.state.isBigger ? 1.2 : 1),
       },
     };
   }
@@ -33,10 +33,12 @@ export default class Loader extends React.Component{
         <Motion  {...this.getSpringProps()}>
           {interpolated => {
             return (
-              <img
-                style={_.extend(s.img, {transform: 'scale(' + interpolated.scale + ') translate3d(-50%, -50%, 0)'})}
-                ref='img'
-                src={require('./Logo.svg')} />
+              <div>
+                <img
+                  style={_.extend(s.img, {transform: 'translate3d(-50%, -50%, 0) scale(' + interpolated.scale + ')'})}
+                  ref='img'
+                  src={require('./Logo.svg')} />
+              </div>
             );
           }}
         </Motion>
