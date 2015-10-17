@@ -1,26 +1,41 @@
-var express = require('express');
 var path = require('path');
-var app = express();
-var bodyParser = require('body-parser');
-var mandrill = require('mandrill-api/mandrill');
+var express = require('express');
 var favicon = require('serve-favicon');
+var bodyParser = require('body-parser');
+var compression = require('compression');
+var mandrill = require('mandrill-api/mandrill');
+
+var app = express();
 var mandrill_client = new mandrill.Mandrill(process.env.MANDRILL_KEY);
 
+// Enable gzip
+app.use(compression());
+
+// Serve dist
 app.use(express.static(path.resolve(__dirname, './dist/public')));
+
+// Parse json for mails
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+
+// Favicon
 app.use(favicon(path.join(__dirname,'logo.ico')));
 
+
+// Allows headers
 app.use(function(req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
   next();
 });
 
+// Render files
 app.get('*', function (req, res) {
   res.sendFile(__dirname + '/index.html');
 });
 
+
+// Mail endpoint
 app.post('/mail', function(req, res) {
 
   if (req.body.email && req.body.name && req.body.details) {
@@ -44,6 +59,7 @@ app.post('/mail', function(req, res) {
   }
 });
 
+// Launch app
 var server = app.listen((process.env.PORT || 8080), function () {
 
   var host = server.address().address;
