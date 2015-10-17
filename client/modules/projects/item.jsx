@@ -132,7 +132,7 @@ function getStyle() {
     container: {
       textAlign: 'center',
       padding: 20,
-      height: 370,
+      height: 320,
       tablet: {
         height: 370,
       },
@@ -206,7 +206,7 @@ function getStyle() {
       position: 'relative',
       verticalAlign: 'middle',
       width: '100%',
-      maxWidth: 300,
+      maxWidth: 180,
       tablet: {
         maxWidth: 300,
       },
