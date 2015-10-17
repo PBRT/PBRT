@@ -1,3 +1,4 @@
+var ejs = require('ejs');
 var path = require('path');
 var express = require('express');
 var favicon = require('serve-favicon');
@@ -21,6 +22,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // Favicon
 app.use(favicon(path.join(__dirname,'logo.ico')));
 
+app.set('views', path.join(__dirname, './dist/views'));
+// app.engine('html', ejs.renderFile);
+app.set('view engine', 'ejs');
+
 
 // Allows headers
 app.use(function(req, res, next) {
@@ -31,7 +36,7 @@ app.use(function(req, res, next) {
 
 // Render files
 app.get('*', function (req, res) {
-  res.sendFile(__dirname + '/index.html');
+  res.render('index', {reactContent: ''});
 });
 
 

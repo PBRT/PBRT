@@ -160,4 +160,4 @@ App.childContextTypes = {
   s: React.PropTypes.func.isRequired,
 };
 
-React.render (<App/>,document.body);
+React.render (<App/>,document.getElementById('app'));
