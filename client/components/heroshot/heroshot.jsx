@@ -34,8 +34,8 @@ export default class Heroshot extends React.Component{
     return (
       <div ref='container' style={_.extend(this.context.s(s.container), {height: this.state.height})}>
         <div style={this.context.s(s.overlay)}></div>
-        <div style={s.name} className='title-negative text-center'> Pierre Beard </div>
-        <div className='text-center subtitle' style={s.subtitle}> Front End Developer </div>
+        <div style={s.name} className='title-negative text-center'>Pierre Beard</div>
+        <div className='text-center subtitle' style={s.subtitle}>Front End Developer</div>
         <div style={this.context.s(s.lineContainer)}>
           <svg width='100%' height='5px'>
             <path d={path} className='lineHero' stroke={UI.whiteBg} strokeWidth='5' fill='#2980B9'/>

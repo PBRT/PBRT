@@ -20,7 +20,6 @@ var devServer = new WebpackDevServer(compiler, {
   },
   quiet: false,
   noInfo: false,
-  hot: true,
   stats: { colors: true },
 });
 
