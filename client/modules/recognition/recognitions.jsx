@@ -81,7 +81,7 @@ function getStyle() {
       backgroundColor: UI.darkBlue,
       display: 'table-cell',
       float: 'none',
-      height: 200,
+      height: 160,
       tablet: {
         height: '100%',
       },

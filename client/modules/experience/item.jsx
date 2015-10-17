@@ -18,7 +18,7 @@ export default class Item extends React.Component{
   }
   getContainerStyle() {
     return _.extend(this.context.s(s.container), {
-      marginBottom: this.props.isLast ? 0 : 100,
+      marginBottom: this.props.isLast ? 0 : (this.context.isMobile ? 50 : 100),
       marginLeft: this.context.isMobile ? 0 : this.props.isLeft ? 0: 30,
       marginRight: this.context.isMobile ? 0 : this.props.isLeft ? 30: 0,
     });
