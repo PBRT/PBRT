@@ -11,6 +11,7 @@ import Recognition from './modules/recognition/recognitions.jsx';
 import Navbar from './components/navbar/navbar.jsx';
 import Loader from './components/loader/loader.jsx';
 import Contact from './modules/contact/contact.jsx';
+import FastClick from 'fastclick';
 
 var s = getStyle();
 
@@ -160,4 +161,5 @@ App.childContextTypes = {
   s: React.PropTypes.func.isRequired,
 };
 
+FastClick.attach(document.body);
 React.render (<App/>,document.getElementById('app'));
