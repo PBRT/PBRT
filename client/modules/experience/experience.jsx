@@ -28,11 +28,11 @@ export default class Experience extends React.Component{
       <div>
         <Section
           title='What I did'
-          subtitle='2+ years of experience in web development. Coming from a MS Degree in Computer Science'
+          subtitle='2+ years of experience in web development. MS Degree in Computer Science and embedded systems.'
           isLast={this.props.isLast}
           backgroundColor={UI.lightGrey}>
           <div style={this.context.s(s.itemsContainer)}>
-            <div style={_.extend(this.context.s(s.imageContainer), {height: this.context.isDesktop ? 1160 : 1250})}>
+            <div style={_.extend(this.context.s(s.imageContainer), {height: this.context.isDesktop ? 1260 : 1290})}>
               <img style={s.line} src={require('./assets/line.svg')}/>
             </div>
             <div style={this.context.s(s.today)} className='text-blue caption text-bold'>TODAY</div>
@@ -74,7 +74,7 @@ function getStyle() {
       },
     },
     items: {
-      marginTop: 40,
+      marginTop: 80,
     },
     button: {
       padding: '0 20px',
@@ -97,18 +97,18 @@ function getStyle() {
     },
     today: {
       position: 'absolute',
-      top: -30,
+      top: 0,
       left: '50%',
       transform: 'translateX(-50%)',
       display: 'none',
       width: 6,
       tablet: {
-        display: 'block',
-        top: -30,
+        display: 'inherit',
+        top: 0,
       },
       desktop: {
-        display: 'block',
-        top: -40,
+        display: 'inherit',
+        top: 0,
       },
     },
     first: {
@@ -119,11 +119,11 @@ function getStyle() {
       display: 'none',
       tablet: {
         display: 'block',
-        bottom: -20
+        bottom: 0,
       },
       desktop: {
         display: 'block',
-        bottom: -20
+        bottom: -20,
       },
     },
   };

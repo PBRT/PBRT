@@ -34,8 +34,14 @@ app.use(function(req, res, next) {
   next();
 });
 
+app.get('/resume', function(req, res){
+  var file = 'test.pdf';
+  res.download(file); // Set disposition and send it.
+});
+
 // Render files
 app.get('*', function (req, res) {
+  console.log(req.url);
   res.render('index', {reactContent: ''});
 });
 
