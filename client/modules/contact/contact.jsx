@@ -159,7 +159,7 @@ export default class Contact extends React.Component{
       $(React.findDOMNode(this.refs['text-button'])).velocity({opacity: this.state.isLoading ? 0 : 1}, 200);
     }
     if ((prevState.isSent !== this.state.isSent) && this.state.isSent){
-      $(React.findDOMNode(this.refs['button'])).velocity('fadeOut', {duration: 400, complete: function() {
+      $(React.findDOMNode(this.refs['form'])).velocity('fadeOut', {duration: 400, complete: function() {
         $(React.findDOMNode(this.refs['done'])).velocity('fadeIn', 400);
       }.bind(this)});
     }
@@ -182,10 +182,10 @@ export default class Contact extends React.Component{
       <div>
         <Section
           title='Contact'
-          subtitle='Drop me a line and lets meet for a latte!'
+          subtitle='Drop me a line and lets meet for a coffee!'
           isLast={this.props.isLast}
           backgroundColor={UI.whiteBg}>
-          <div style={this.context.s(s.container)}>
+          <div style={this.context.s(s.container)} ref='form'>
             <div style={this.context.s(s.inputGroup)}>
               <input
                 className='caption'
@@ -242,9 +242,9 @@ export default class Contact extends React.Component{
                 <span className='text-white text-center headline' ref='text-button' style={s.button}>Contact Me</span>
               </Button>
             </div>
-            <div className='text-center' ref='done'>
-              <span className='text-green text-center headline'>Thank you!</span>
-            </div>
+          </div>
+          <div className='text-center' ref='done'>
+            <span className='text-green text-center headline'>Thank you!</span>
           </div>
         </Section>
       </div>

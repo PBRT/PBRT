@@ -20,12 +20,12 @@ export default class ModalContainer extends React.Component{
 
     let githubLink = this.props.item.gitLink ?
       (<div>
-          GitHub link:
+          GitHub link:&nbsp;
           <a
             className='text-blue'
             style={s.link}
             href={this.props.item.gitLink}
-            target='_blank'> {this.props.item.gitLink}</a>
+            target='_blank'>{this.props.item.gitLink}</a>
         </div>) : '';
 
     return (

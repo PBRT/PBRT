@@ -16,7 +16,7 @@ export default class Footer extends React.Component{
       <div style={this.context.s(s.footer)}>
         <div style={this.context.s(s.col)}>
           <div style={this.context.s(s.name)} className='small text-white'>Pierre Beard</div>
-          <div className='small text-white'>2015 London</div>
+          <div className='small text-white' style={this.context.s(s.name)}>2015 London</div>
         </div>
         <div style={this.context.s(s.colImages)} className='text-right'>
           <a
@@ -28,7 +28,7 @@ export default class Footer extends React.Component{
             ref='git'
             href='https://github.com/PBRT'
             target='_blank'>
-            <img style={this.context.s(s.icon)} src={require('./assets/Github.svg')} />
+            <img style={_.extend(this.context.s(s.icon), {marginLeft: 0})} src={require('./assets/Github.svg')} />
           </a>
           <a
             style={s.link}
@@ -99,14 +99,17 @@ function getStyle() {
       display: 'block',
       textAlign: 'center',
       verticalAlign: 'text-bottom',
-      marginTop: 10,
+      marginTop: 30,
+      marginBottom: 20,
       tablet: {
+        marginBottom: 0,
         float: 'none',
         width: '50%',
         display: 'inline-block',
         textAlign: 'right',
       },
       desktop: {
+        marginBottom: 0,
         float: 'none',
         width: '50%',
         display: 'inline-block',
@@ -114,7 +117,8 @@ function getStyle() {
       },
     },
     name: {
-      marginBottom: 0,
+      marginBottom: 12,
+      fontSize: 14,
       tablet: {
         marginBottom: 5
       },
@@ -126,8 +130,8 @@ function getStyle() {
       opacity: 0.7,
     },
     icon: {
-      width: 20,
-      marginLeft: 10,
+      width: 30,
+      marginLeft: 30,
       tablet: {
         width: 25,
         marginLeft: 20,

@@ -56,7 +56,7 @@ export default class Method extends React.Component{
       <div>
         <Section
           title='How I work'
-          subtitle='I follow a powerful pattern I learnt from my previous experience in a agile way of thinking.'
+          subtitle='I follow a powerful pattern I learnt from my previous experiences in a agile way of thinking.'
           isLast={this.props.isLast}
           backgroundColor={UI.whiteBg}>
           <Donut
