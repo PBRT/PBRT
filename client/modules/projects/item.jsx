@@ -111,13 +111,10 @@ export default class Item extends React.Component{
                         </div>
                       </div> : ''
                     }
-                    <div style={this.context.s(s.overlay)}>
+                    <div style={this.context.s(s.overlay)} onClick={this.handleModal.bind(null, true)}>
                       <div className='text-center text-white' style={styleTitle}>{this.props.item.name}</div>
                       <div style={styleSubtitle}>
-                        <div
-                          style={this.context.s(s.subtitleText)}
-                          onClick={this.handleModal.bind(null, true)}
-                        >See more</div>
+                        <div style={this.context.s(s.subtitleText)}>See more</div>
                       </div>
                     </div>
                   </div>
@@ -194,6 +191,7 @@ function getStyle() {
     },
     overlay: {
       position: 'absolute',
+      cursor: 'pointer',
       top: 0,
       left: 0,
       width: '100%',

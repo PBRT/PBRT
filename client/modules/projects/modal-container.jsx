@@ -40,12 +40,12 @@ export default class ModalContainer extends React.Component{
         <div style={s.sectionTitle} className='caption text-left'>Links</div>
         <div style={s.paragraph} className='caption text-left'>
           <div>
-            Live link:
+            Live link:&nbsp;
             <a
               className='text-blue'
               style={s.link}
               href={this.props.item.link}
-              target='_blank'> {this.props.item.link}</a>
+              target='_blank'>{this.props.item.link}</a>
           </div>
           {githubLink}
         </div>
