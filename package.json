@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "test": "test",
-    "build": "webpack -p",
+    "build": "gulp build",
     "run": "node serve.js",
     "postinstall": "gulp build"
   },
@@ -61,6 +61,7 @@
     "stylus-export-loader": "git+https://git@github.com/PBRT/stylus-export-loader.git",
     "underscore": "^1.8.3",
     "url-loader": "^0.5.6",
-    "velocity-animate": "^1.2.2"
+    "velocity-animate": "^1.2.2",
+    "webpack": "^1.12.2"
   }
 }
