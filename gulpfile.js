@@ -8,7 +8,7 @@ var config = require('./webpack.config.js');
 
 
 // Build app
-gulp.task('webpack', function(callback) {
+gulp.task('webpack', ['clean'], function(callback) {
   // run webpack
   webpack(config, function(err, stats) {
     if (err) { throw new $.util.PluginError('Webpack Error:', err); }
