@@ -12,30 +12,22 @@ var mandrill_client = new mandrill.Mandrill(process.env.MANDRILL_KEY);
 app.use(compression());
 
 // Serve dist
-app.use(express.static(path.resolve(__dirname, './dist/public')));
+app.use(express.static(path.resolve(__dirname, '../public')));
 
 // Parse json for mails
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 // Favicon
-app.use(favicon(path.join(__dirname,'logo.ico')));
+app.use(favicon(path.join(__dirname, 'logo.ico')));
 
 // View render
-app.set('views', path.join(__dirname, './dist/views'));
+app.set('views', path.join(__dirname, './views'));
 app.set('view engine', 'ejs');
-
-
-// Allows headers
-app.use(function(req, res, next) {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-  next();
-});
 
 // Resume endpoint
 app.get('/resume', function(req, res){
-  var file = path.join(__dirname,'./dist/public/' ,'resume.pdf');
+  var file = path.join(__dirname, 'resume.pdf');
   res.download(file);
 });
 
