@@ -1,4 +1,3 @@
-var ejs = require('ejs');
 var path = require('path');
 var express = require('express');
 var favicon = require('serve-favicon');
@@ -36,7 +35,7 @@ app.use(function(req, res, next) {
 
 // Resume endpoint
 app.get('/resume', function(req, res){
-  var file = path.join(__dirname,'./dist/public/' ,'test.pdf');
+  var file = path.join(__dirname,'./dist/public/' ,'resume.pdf');
   res.download(file);
 });
 

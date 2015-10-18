@@ -39,7 +39,7 @@ module.exports = {list: [
   {
     name: 'PBRT',
     imageSrc: 'pbrt.jpg',
-    link: 'http://pbrt.herokuapp.com',
+    link: 'http://pbrt.co',
     gitLink: 'http://github.com/PBRT/pbrt',
     description: 'My personal website you are currently on haha!',
     fullDescription:
