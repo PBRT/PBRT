@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 var colors = require('colors');
 var webpack = require('webpack');
-var config = require('./webpack.config.js');
+var config = require('../webpack.config.js');
 var WebpackDevServer = require('webpack-dev-server');
 
 // handle the code updates client side
@@ -17,7 +17,6 @@ var server = require('./server.js');
 var devServer = new WebpackDevServer(compiler, {
   proxy: {
     '*': 'http://localhost:' + (process.env.PORT ? process.env.PORT : '9000'),
-    // '*': 'http://192.168.0.3:' + (process.env.PORT ? process.env.PORT : '9000'),
   },
   quiet: false,
   noInfo: false,
