@@ -20,8 +20,8 @@ module.exports = {
     },
     {
       title: 'M.S. Computer Science (5 years)',
-      subtitle: 'Graduated from the I.N.S.A. of Toulouse in computer science (engineering school). Learnt software development, ' +
-      'physics, embedded systems, computer science and digital circuits.',
+      subtitle: 'Graduated from the I.N.S.A. of Toulouse in computer science (engineering school). ' +
+      'Learnt software development, physics, embedded systems, computer science and digital circuits.',
       duration: '5 years',
       technologies: [],
       icon: 'college.png',
