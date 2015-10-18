@@ -21,8 +21,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // Favicon
 app.use(favicon(path.join(__dirname,'logo.ico')));
 
+// View render
 app.set('views', path.join(__dirname, './dist/views'));
-// app.engine('html', ejs.renderFile);
 app.set('view engine', 'ejs');
 
 
@@ -70,7 +70,7 @@ app.post('/mail', function(req, res) {
 });
 
 // Launch app
-var server = app.listen((process.env.PORT || 8080), function () {
+var server = app.listen((process.env.PORT || 9000), function () {
 
   var host = server.address().address;
   var port = server.address().port;

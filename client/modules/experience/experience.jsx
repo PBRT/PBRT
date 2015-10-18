@@ -74,7 +74,13 @@ function getStyle() {
       },
     },
     items: {
-      marginTop: 80,
+      marginTop: 0,
+      tablet: {
+        marginTop: 80,
+      },
+      desktop: {
+        marginTop: 80
+      },
     },
     button: {
       padding: '0 20px',
