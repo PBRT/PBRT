@@ -50,7 +50,7 @@ export default class Footer extends React.Component{
             onTouchEnd={this.animateComp.bind(null, 'linked', false, 'touch')}
             href='https://uk.linkedin.com/pub/pierre-beard/62/690/4b0'
             target='_blank'>
-            <img style={this.context.s(s.icon)} src={require('./assets/linkedin.svg')} />
+            <img style={this.context.s(s.icon)} src={require('./assets/Linkedin.svg')} />
           </a>
         </div>
       </div>
