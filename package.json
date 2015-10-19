@@ -6,7 +6,8 @@
   "scripts": {
     "test": "test",
     "build": "gulp build",
-    "run": "node serve.js",
+    "start": "node serve.js",
+    "local": "gulp build:development",
     "postinstall": "gulp build"
   },
   "repository": {
