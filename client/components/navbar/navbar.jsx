@@ -1,51 +1,40 @@
 var s = getStyle();
-import {spring, Motion} from 'react-motion';
 
 export default class Navbar extends React.Component{
   constructor(props) {
     super(props);
-    this.getSpringProps = this.getSpringProps.bind(this);
     this.state = {
       isVisible: false,
     };
   }
-  getSpringProps() {
-    return {
-      defaultStyle: {
-        top: -60,
-      },
-      style:{
-        top: spring(this.state.isVisible ? 0 : -60),
-      },
-    };
+  componentDidMount() {
+    $(React.findDOMNode(this)).velocity({translateY: -60}, 0);
   }
   componentDidUpdate(prevProps, prevState, prevContext) {
     if (prevContext.scrollPosition !== this.context.scrollPosition) {
-      this.setState({isVisible: (this.context.scrollPosition > 600)});
+      this.setState({isVisible: this.context.scrollPosition > 600});
+    }
+    if (this.state.isVisible !== prevState.isVisible) {
+      $(React.findDOMNode(this)).velocity({translateY: (this.context.scrollPosition > 600) ? 0 : -60},
+      UI.duration * 4);
     }
   }
   render() {
 
     return (
-      <Motion {...this.getSpringProps()}>
-        {interpolated => {
-          return (
-            <div style={_.extend(s.navbar, {transform: 'translateY(' + interpolated.top + 'px)'})}>
-              <div style={this.context.s(s.sub)}>
-                <div style={this.context.s(s.subsub)}>
-                  <div style={s.logo}>
-                    <img
-                      src={require('./assets/logo.jpg')}
-                      style={this.context.s(s.img)}
-                      onClick={this.props.scrollTo.bind(null, 'expertise', 0)}/>
-                  </div>
-                  <div style={s.contact} onClick={this.props.scrollTo.bind(null, 'contact', -60)}>Contact</div>
-                </div>
-              </div>
+      <div style={s.navbar}>
+        <div style={this.context.s(s.sub)}>
+          <div style={this.context.s(s.subsub)}>
+            <div style={s.logo}>
+              <img
+                src={require('./assets/logo.jpg')}
+                style={this.context.s(s.img)}
+                onClick={this.props.scrollTo.bind(null, 'expertise', 0)}/>
             </div>
-          );
-        }}
-      </Motion>
+            <div style={s.contact} onClick={this.props.scrollTo.bind(null, 'contact', -60)}>Contact</div>
+          </div>
+        </div>
+      </div>
     );
   }
 }

@@ -14,7 +14,7 @@ export default class Loader extends React.Component{
     let i = setInterval(function(){
       this.setState({isBigger: !this.state.isBigger});
       count ++;
-      if (count === 10) {clearInterval(i);}
+      if (count === 20) {clearInterval(i);}
     }.bind(this), 500);
   }
   getSpringProps() {
