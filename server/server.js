@@ -27,7 +27,7 @@ app.set('view engine', 'ejs');
 
 // Resume endpoint
 app.get('/resume', function(req, res){
-  var file = path.join(__dirname, 'resume.pdf');
+  var file = path.join(__dirname, 'Resume.pdf');
   res.download(file);
 });
 
