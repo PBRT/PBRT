@@ -20,14 +20,14 @@
   "author": "Pierre Beard",
   "license": "ISC",
   "devDependencies": {
-    "babel-core": "^5.8.23",
-    "babel-loader": "^5.3.2",
     "css-loader": "^0.17.0",
     "style-loader": "^0.12.3",
     "stylus-loader": "^1.2.1",
     "webpack-dev-server": "^1.10.1"
   },
   "dependencies": {
+    "babel-core": "^5.8.23",
+    "babel-loader": "^5.3.2",
     "body-parser": "^1.14.1",
     "bootstrap": "^3.3.5",
     "bootstrap-styl": "^4.0.5",
@@ -56,7 +56,6 @@
     "react-modal": "^0.5.0",
     "react-motion": "^0.3.0",
     "serve-favicon": "^2.3.0",
-    "style-loader": "^0.12.3",
     "stylus": "^0.52.4",
     "stylus-export-loader": "git+https://git@github.com/PBRT/stylus-export-loader.git",
     "underscore": "^1.8.3",
