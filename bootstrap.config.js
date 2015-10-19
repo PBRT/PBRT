@@ -19,7 +19,7 @@ module.exports = {
     'normalize': false,
     'print': false,
 
-    'scaffolding': false,
+    'scaffolding': true,
     'type': false,
     'code': false,
     'grid': true,
