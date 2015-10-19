@@ -1,16 +1,25 @@
 var del = require('del');
 var gulp = require('gulp');
-// var colors = require('colors');
 var gutil = require('gulp-util');
 var webpack = require('webpack');
 var $ = require('gulp-load-plugins')();
 var config = require('./webpack.config.js');
+var configProduction = require('./webpack.production.config.js');
 
-
-// Build app
-gulp.task('webpack', ['clean'], function(callback) {
+// Build app for development
+gulp.task('webpack:development', ['clean'], function(callback) {
   // run webpack
   webpack(config, function(err, stats) {
+    if (err) { throw new $.util.PluginError('Webpack Error:', err); }
+    gutil.log('[webpack]', stats.toString({colors: true}));
+    callback();
+  });
+});
+
+// Build app for production
+gulp.task('webpack:production', ['clean'], function(callback) {
+  // run webpack
+  webpack(configProduction, function(err, stats) {
     if (err) { throw new $.util.PluginError('Webpack Error:', err); }
     gutil.log('[webpack]', stats.toString({colors: true}));
     callback();
@@ -51,5 +60,12 @@ gulp.task('build', [
   'copy:bootstrap',
   'copy:server',
   'copy:package-json',
-  'webpack',
+  'webpack:production',
+]);
+
+gulp.task('build:development', [
+  'copy:bootstrap',
+  'copy:server',
+  'copy:package-json',
+  'webpack:production',
 ]);
