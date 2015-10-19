@@ -11,10 +11,13 @@ export default class Heroshot extends React.Component{
   }
   componentDidUpdate(prevProps, prevState, prevContext) {
     if (prevContext.hasBeenResized !== this.context.hasBeenResized) {
-      this.setState({
-        height: window.innerHeight - 20,
-        pathWidth: ($(React.findDOMNode(this.refs.container)).width() * 0.5)
-      });
+      let newWidth = ($(React.findDOMNode(this.refs.container)).width() * 0.5);
+
+      if (newWidth !== this.state.pathWidth) {
+        this.setState({
+          pathWidth: ($(React.findDOMNode(this.refs.container)).width() * 0.5)
+        });
+      }
     }
   }
   componentDidMount() {
