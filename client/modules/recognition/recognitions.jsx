@@ -13,10 +13,12 @@ export default class Recognition extends React.Component{
   renderReco() {
     return recognitions.map((item, index) => {
       return (
-        <div key={index} style={s.line} ref={'line-' + index}>
-          <div style={this.context.s(s.title)} className='body'>{item.text}</div>
-          <div style={this.context.s(s.author)} className='caption'>{item.name}</div>
-        </div>
+        <a href={_.clone(item.link)} style={s.link} target='_blank'>
+          <div key={index} style={s.line} className='text-white' ref={'line-' + index}>
+              <div style={this.context.s(s.title)} className='caption'>{item.text}</div>
+              <div style={this.context.s(s.author)} className='caption'>{item.name}</div>
+          </div>
+        </a>
       );
     });
   }
@@ -26,7 +28,7 @@ export default class Recognition extends React.Component{
       complete: function() {
         $(React.findDOMNode(this.refs['line-' + index])).velocity({opacity: 0, bottom: 50}, {
           duration: 400,
-          delay: 3000,
+          delay: 15000,
           complete: function() {
             $(React.findDOMNode(this.refs['line-' + index])).velocity({opacity: 0, bottom: -20}, 0);
             this.setState({
@@ -99,14 +101,20 @@ function getStyle() {
     },
     title: {
       marginBottom: 5,
+      fontSize: 12,
       tablet: {
         marginBottom: 10,
+        fontSize: 14,
       },
       desktop: {
         marginBottom: 20,
+        fontSize: 18,
       },
     },
     author: {},
+    link: {
+      textDecoration: 'none',
+    },
   };
 };
 

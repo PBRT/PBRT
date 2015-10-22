@@ -27,7 +27,7 @@ export default class Expertise extends React.Component{
       <div>
         <Section
           title='Expertise'
-          subtitle='I’m doing complex web application, static website and mobile projects.'
+          subtitle='I develop complex web applications, static websites and mobile apps.'
           isLast={this.props.isLast}
           backgroundColor={UI.whiteBg}>
           <div style={this.context.s(s.itemsContainer)}>
@@ -36,7 +36,7 @@ export default class Expertise extends React.Component{
           <div className='row text-center'>
             <a href='/resume' download='PierreBeardResume' target='_blank'>
               <Button>
-                <span className='text-negative text-center headline' style={s.button}>Resume</span>
+                <span className='text-negative text-center headline' style={s.button}>Download Resume</span>
               </Button>
             </a>
           </div>

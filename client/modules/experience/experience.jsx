@@ -32,7 +32,7 @@ export default class Experience extends React.Component{
           isLast={this.props.isLast}
           backgroundColor={UI.lightGrey}>
           <div style={this.context.s(s.itemsContainer)}>
-            <div style={_.extend(this.context.s(s.imageContainer), {height: this.context.isDesktop ? 1260 : 1290})}>
+            <div style={_.extend(this.context.s(s.imageContainer), {height: this.context.isDesktop ? 1320 : 1340})}>
               <img style={s.line} src={require('./assets/line.svg')}/>
             </div>
             <div style={this.context.s(s.today)} className='text-blue caption text-bold'>TODAY</div>
@@ -91,6 +91,7 @@ function getStyle() {
       display: 'none',
       left: '50%',
       transform: 'translateX(-50%)',
+      top: 30,
       tablet: {
         display: 'block',
       },

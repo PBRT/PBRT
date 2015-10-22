@@ -3,8 +3,10 @@ module.exports = {
     {
       title: 'WorkAngel Ltd (1 year)',
       subtitle:
-        'Build a social recognition platform for improving employees benefits. Responsive web application and CMS. ' +
-        'Design review, Agile WorkFlow, technologies migration (from AngularJS to ReactJS) and external API handling.',
+        'Building a social recognition platform for improving employees benefits. ' +
+        'This includes responsive web application and CMS. My responsabilities are :' +
+        'carrying out design reviews, mastering agile workflow, technology migration ' +
+        ' (from AngularJS to ReactJS) and external API handling.',
       duration: '1 year',
       technologies: ['ReactJS', 'AngularJS', 'NodeJS', 'Webpack', 'Gulp', 'Express'],
       icon: 'touch.png',
@@ -12,15 +14,16 @@ module.exports = {
     {
       title: 'INFOTEL CONSEIL (7 months)',
       subtitle:
-        'Build a web cross platform web application responsive used for Marathons. ' +
-        'Specifications, technology analysis, develpment (front end and backend) testing and deployment.',
+        'Build a responsive cross platform web application responsive used for Sport Events. ' +
+        'I developed specifications, carried out technology analysis, ' +
+        'as well as development (front end and backend) testing and deployment.',
       duration: '7 months',
       technologies: ['AngularJS', 'NodeJS', 'SailsJS', 'Bootstrap', 'Android SDK'],
       icon: 'run.png',
     },
     {
       title: 'M.S. Computer Science (5 years)',
-      subtitle: 'Graduated from the I.N.S.A. of Toulouse in computer science (engineering school). ' +
+      subtitle: 'Graduated from the I.N.S.A. of Toulouse in Computer Science (engineering school). ' +
       'Learnt software development, physics, embedded systems, computer science and digital circuits.',
       duration: '5 years',
       technologies: [],
