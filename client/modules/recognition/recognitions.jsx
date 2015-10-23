@@ -13,24 +13,24 @@ export default class Recognition extends React.Component{
   renderReco() {
     return recognitions.map((item, index) => {
       return (
-        <a href={_.clone(item.link)} style={s.link} target='_blank'>
-          <div key={index} style={s.line} className='text-white' ref={'line-' + index}>
-              <div style={this.context.s(s.title)} className='caption'>{item.text}</div>
-              <div style={this.context.s(s.author)} className='caption'>{item.name}</div>
-          </div>
+        <a href={item.link} target='_blank' key={index} style={s.line} className='text-white' ref={'line-' + index}>
+            <div style={this.context.s(s.title)} className='caption'>{item.text}</div>
+            <div style={this.context.s(s.author)} className='caption'>{item.name}</div>
         </a>
       );
     });
   }
   animateLine(index) {
-    $(React.findDOMNode(this.refs['line-' + index])).velocity({opacity: 1, bottom: 20}, {
+    $(React.findDOMNode(this.refs['line-' + index])).velocity({opacity: 1, bottom: 0}, {
       duration: 400,
       complete: function() {
+        $(React.findDOMNode(this.refs['line-' + index])).css('z-index', 9);
         $(React.findDOMNode(this.refs['line-' + index])).velocity({opacity: 0, bottom: 50}, {
           duration: 400,
           delay: 15000,
           complete: function() {
-            $(React.findDOMNode(this.refs['line-' + index])).velocity({opacity: 0, bottom: -20}, 0);
+            $(React.findDOMNode(this.refs['line-' + index])).velocity({opacity: 0, bottom: -40}, 0);
+            $(React.findDOMNode(this.refs['line-' + index])).css('z-index', 0);
             this.setState({
               currentLine: (this.state.currentLine === recognitions.length - 1) ? 0 : this.state.currentLine + 1});
           }.bind(this),
@@ -83,7 +83,7 @@ function getStyle() {
       backgroundColor: UI.darkBlue,
       display: 'table-cell',
       float: 'none',
-      height: 160,
+      height: 400,
       tablet: {
         height: '100%',
       },
@@ -97,7 +97,9 @@ function getStyle() {
     line: {
       position: 'absolute',
       bottom: -20,
-      padding: '0px 20px',
+      padding: '0px 20px 20px',
+      textDecoration: 'none',
+      color: UI.whiteBg,
     },
     title: {
       marginBottom: 5,
@@ -112,9 +114,6 @@ function getStyle() {
       },
     },
     author: {},
-    link: {
-      textDecoration: 'none',
-    },
   };
 };
 
