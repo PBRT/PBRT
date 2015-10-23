@@ -181,7 +181,7 @@ export default class Contact extends React.Component{
     return (
       <div>
         <Section
-          title='Contact'
+          title='Contact me'
           subtitle='Drop me a line and lets meet for a coffee!'
           isLast={this.props.isLast}
           backgroundColor={UI.whiteBg}>
@@ -239,7 +239,7 @@ export default class Contact extends React.Component{
                   <div className='rect4'></div>
                   <div className='rect5'></div>
                 </div>
-                <span className='text-white text-center headline' ref='text-button' style={s.button}>Contact Me</span>
+                <span className='text-white text-center headline' ref='text-button' style={s.button}>Send</span>
               </Button>
             </div>
           </div>

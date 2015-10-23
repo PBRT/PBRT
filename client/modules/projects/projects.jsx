@@ -25,7 +25,8 @@ export default class Projects extends React.Component{
       <div>
         <Section
           title='Projects'
-          subtitle='I love my job. I build professional products but also working on side projects during my free time.'
+          subtitle=
+            'I love my job. I build professional products by day and do my own hacks whenever I get a spare minute.'
           isLast={this.props.isLast}
           backgroundColor={UI.lightGrey}>
           <Masonry className={'row'}>
