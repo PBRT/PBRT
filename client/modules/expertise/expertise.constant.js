@@ -17,7 +17,7 @@ module.exports = {
     {
       imageSrc: 'ux.jpg',
       title: 'UX/UI',
-      subtitle: 'I’m use to working closely with creative teams. ' +
+      subtitle: 'I’m used to working closely with creative teams. ' +
       'I build reliable and functional apps. ' +
       'On top of that I have a good understanding of Google Analytics, UX patterns and Sketch App software.'
     },
