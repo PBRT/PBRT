@@ -18,6 +18,7 @@ export default class Experience extends React.Component{
           title={item.title}
           subtitle={item.subtitle}
           icon={item.icon}
+          date={item.date}
           techs={item.technologies} />
       );
     });
@@ -32,7 +33,7 @@ export default class Experience extends React.Component{
           isLast={this.props.isLast}
           backgroundColor={UI.lightGrey}>
           <div style={this.context.s(s.itemsContainer)}>
-            <div style={_.extend(this.context.s(s.imageContainer), {height: this.context.isDesktop ? 1320 : 1340})}>
+            <div style={_.extend(this.context.s(s.imageContainer), {height: this.context.isDesktop ? 1480 : 1420})}>
               <img style={s.line} src={require('./assets/line.svg')}/>
             </div>
             <div style={this.context.s(s.today)} className='text-blue caption text-bold'>TODAY</div>

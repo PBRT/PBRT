@@ -60,6 +60,7 @@ export default class Item extends React.Component{
           <div style={this.context.s(s.title)} className='body'>
             {this.props.title}
           </div>
+          <div style={this.context.s(s.date)} className='caption text-grey'>{this.props.date}</div>
           <div style={this.context.s(s.subtitle)} className='caption text-grey'>
             {this.props.subtitle}
           </div>
@@ -118,6 +119,10 @@ function getStyle() {
     icon: {
       position: 'absolute',
       top: 15,
+    },
+    date: {
+      marginTop: 5,
+      marginBottom: 5,
     },
   };
 };
