@@ -1,7 +1,7 @@
 module.exports = {
   experiences: [
     {
-      title: 'WorkAngel Ltd (1 year)',
+      title: 'WorkAngel Ltd (10/2014 - Current)',
       subtitle:
         'Building a social recognition platform for improving employees benefits. ' +
         'This includes responsive web application and CMS. My responsabilities are :' +
@@ -12,7 +12,7 @@ module.exports = {
       icon: 'touch.png',
     },
     {
-      title: 'INFOTEL CONSEIL (7 months)',
+      title: 'INFOTEL CONSEIL (02/2014 - 08/2014)',
       subtitle:
         'Build a responsive cross platform web application responsive used for Sport Events. ' +
         'I developed specifications, carried out technology analysis, ' +
@@ -22,7 +22,7 @@ module.exports = {
       icon: 'run.png',
     },
     {
-      title: 'M.S. Computer Science (5 years)',
+      title: 'M.S. Computer Science (2009 - 2014)',
       subtitle: 'Graduated from the I.N.S.A. of Toulouse in Computer Science (engineering school). ' +
       'Learnt software development, physics, embedded systems, computer science and digital circuits.',
       duration: '5 years',
@@ -30,7 +30,7 @@ module.exports = {
       icon: 'college.png',
     },
     {
-      title: 'AERODRONES (4 months)',
+      title: 'AERODRONES (06/2013 - 09/2013)',
       subtitle:
         'Conception and development of and embedded software driving the orientation of a camera fixed on a drone.',
       duration: '4 months',
