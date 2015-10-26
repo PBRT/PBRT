@@ -189,7 +189,7 @@ export default class Contact extends React.Component{
             <div style={this.context.s(s.inputGroup)}>
               <input
                 className='caption'
-                placeholder='Name'
+                placeholder='Your name'
                 style={nameStyle}
                 onChange={this.handleNameChange}
                 onFocus={this.handleNameFocus}
@@ -201,7 +201,7 @@ export default class Contact extends React.Component{
             <div style={this.context.s(s.inputGroup)}>
               <input
                 className='caption'
-                placeholder='Mail'
+                placeholder='Your mail'
                 style={mailStyle}
                 onChange={this.handleMailChange}
                 onFocus={this.handleMailFocus}
