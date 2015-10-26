@@ -31,6 +31,9 @@ export default class Navbar extends React.Component{
                 style={this.context.s(s.img)}
                 onClick={this.props.scrollTo.bind(null, 'expertise', 0)}/>
             </div>
+            <div style={s.contact}>
+              <a href='/resume' style={s.link} download='PierreBeardResume' target='_blank'>Resume</a>
+            </div>
             <div style={s.contact} onClick={this.props.scrollTo.bind(null, 'contact', -60)}>Contact</div>
           </div>
         </div>
@@ -91,9 +94,13 @@ function getStyle() {
       width: '70%',
       textAlign: 'right',
       padding: 10,
-      padding: '10px 0px',
+      padding: '10px 20px 10px 10px',
       verticalAlign: 'middle',
       cursor: 'pointer',
+    },
+    link: {
+      color: UI.blackText,
+      textDecoration: 'none',
     },
     img: {
       width: 30,

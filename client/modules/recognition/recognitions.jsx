@@ -14,8 +14,9 @@ export default class Recognition extends React.Component{
     return recognitions.map((item, index) => {
       return (
         <a href={item.link} target='_blank' key={index} style={s.line} className='text-white' ref={'line-' + index}>
-            <div style={this.context.s(s.title)} className='caption'>{item.text}</div>
-            <div style={this.context.s(s.author)} className='caption'>{item.name}</div>
+          <img src={require('./assets/quote.png')} style={s.quote} />
+          <div style={this.context.s(s.title)} className='caption'>{item.text}</div>
+          <div style={this.context.s(s.author)} className='caption'>{item.name}</div>
         </a>
       );
     });
@@ -114,6 +115,10 @@ function getStyle() {
       },
     },
     author: {},
+    quote: {
+      width: 40,
+      marginBottom: 20,
+    },
   };
 };
 
