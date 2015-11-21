@@ -1,7 +1,5 @@
 import Section from 'section.jsx';
 import Item from './item.jsx';
-
-var Masonry = require('react-masonry-component')(React);
 import {list} from './projects.constant.js';
 
 export default class Projects extends React.Component{
@@ -29,9 +27,9 @@ export default class Projects extends React.Component{
             'I love my job. I build professional products by day and do my own hacks whenever I get a spare minute.'
           isLast={this.props.isLast}
           backgroundColor={UI.lightGrey}>
-          <Masonry className={'row'}>
+          <div className={'row'} style={{display: 'inline-block'}}>
             {this.renderProjects()}
-          </Masonry>
+          </div>
         </Section>
       </div>
     );
