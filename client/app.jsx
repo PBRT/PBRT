@@ -1,6 +1,7 @@
 import 'bootstrap-webpack';
 import './style/app.styl';
 import 'velocity-animate';
+import Rx from 'rx-lite';
 import Expertise from './modules/expertise/expertise.jsx';
 import Method from './modules/method/method.jsx';
 import Projects from './modules/projects/projects.jsx';
@@ -25,7 +26,6 @@ class App extends React.Component {
       isTablet: this.isTablet(),
       isDesktop: this.isDesktop(),
       isTouchDevice: this.isTouchDevice(),
-      scrollPosition: window.pageYOffset,
     };
     this.fadeApp = this.fadeApp.bind(this);
     this.scrollTo = this.scrollTo.bind(this);
@@ -33,7 +33,6 @@ class App extends React.Component {
     this.isTablet = this.isTablet.bind(this);
     this.isDesktop = this.isDesktop.bind(this);
     this.isTouchDevice = this.isTouchDevice(this);
-    this.handleScroll = this.handleScroll.bind(this);
     this.handleStyle = this.handleStyle.bind(this);
     this.handleResize = this.handleResize.bind(this);
     this.debouncedHandleResize = _.debounce(() => {this.handleResize();}, UI.wait);
@@ -45,7 +44,7 @@ class App extends React.Component {
       isDesktop: this.state.isDesktop,
       isTouchDevice: this.state.isTouchDevice,
       hasBeenResized: this.state.hasBeenResized,
-      scrollPosition: this.state.scrollPosition,
+      scrollPositionObs: Rx.Observable.fromEvent(window, 'scroll').debounce(10),
       s: this.handleStyle,
     };
   }
@@ -61,9 +60,6 @@ class App extends React.Component {
   isTouchDevice() {
     return 'ontouchstart' in window // works on most browsers
       || 'onmsgesturechange' in window; // works on ie10
-  }
-  handleScroll() {
-    this.setState({scrollPosition: window.pageYOffset});
   }
   scrollTo(ref, offset) {
     $(React.findDOMNode(this.refs[ref])).velocity('scroll', {offset: offset, duration: 400, easing: 'easeInOutExpo'});
@@ -81,11 +77,9 @@ class App extends React.Component {
     React.initializeTouchEvents(true);
     this.handleResize();
     window.addEventListener('resize', this.debouncedHandleResize);
-    window.addEventListener('scroll', this.handleScroll);
   }
   componentWillUnmount() {
     window.removeEventListener('resize', this.debouncedHandleResize);
-    window.removeEventListener('scroll', this.handleScroll);
   }
   handleStyle(style) {
     let mobile = this.getViewportStyle(style);
@@ -157,7 +151,7 @@ App.childContextTypes = {
   isDesktop: React.PropTypes.bool.isRequired,
   isTouchDevice: React.PropTypes.bool.isRequired,
   hasBeenResized: React.PropTypes.bool.isRequired,
-  scrollPosition: React.PropTypes.number.isRequired,
+  scrollPositionObs: React.PropTypes.object.isRequired,
   s: React.PropTypes.func.isRequired,
 };
 

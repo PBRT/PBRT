@@ -24,7 +24,6 @@ export default class Experience extends React.Component{
     });
   }
   render() {
-
     return (
       <div>
         <Section

@@ -18,14 +18,12 @@ export default class Method extends React.Component{
   }
   componentDidMount() {
     if (this.context.isMobile) { this.triggerAnimation(); };
-    if (this.context.scrollPosition > ($(React.findDOMNode(this)).position().top)) {
-      this.triggerAnimation();
-    }
-  }
-  componentDidUpdate(prevProps, prevState, prevContext) {
-    if ((prevContext.scrollPosition !== this.context.scrollPosition) && !this.state.isVisible) {
-      if (this.context.scrollPosition > $(React.findDOMNode(this)).position().top) {this.triggerAnimation(); };
-    }
+
+    this.displayStream = this.context.scrollPositionObs
+      .startWith(window.pageYOffset)
+      .filter(() => !this.state.isVisible)
+      .filter(() => window.pageYOffset > ($(React.findDOMNode(this)).position().top))
+      .subscribe(() => this.triggerAnimation());
   }
   triggerAnimation() {
     this.setState({
@@ -73,7 +71,7 @@ Method.contextTypes = {
   s: React.PropTypes.func.isRequired,
   isMobile: React.PropTypes.bool.isRequired,
   isTablet: React.PropTypes.bool.isRequired,
-  scrollPosition: React.PropTypes.number.isRequired,
+  scrollPositionObs: React.PropTypes.object.isRequired,
 };
 Method.propTypes = {
   isLast: React.PropTypes.bool.isRequired,

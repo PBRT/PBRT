@@ -9,15 +9,15 @@ export default class Item extends React.Component{
       isVisible: false,
     };
   }
-  componentDidUpdate(prevProps, prevState, prevContext) {
-    if ((prevContext.scrollPosition !== this.context.scrollPosition) && !this.state.isVisible) {
-      if (this.context.scrollPosition > $(React.findDOMNode(this)).position().top + 100) {
-        this.setState({isVisible: true});
-      }
-    }
-  }
   componentDidMount() {
     if (this.context.isMobile) { this.setState({isVisible: true}); };
+    this.displayStream = this.context.scrollPositionObs
+      .filter(() => !this.state.isFixed)
+      .filter(() => window.pageYOffset >= $(React.findDOMNode(this)).position().top + 100)
+      .subscribe(() => this.setState({isVisible: true}));
+  }
+  componentWillUnmount() {
+    this.displayStream.dispose();
   }
   getSpringProps() {
     return {
@@ -66,7 +66,7 @@ export default class Item extends React.Component{
 Item.contextTypes = {
   s: React.PropTypes.func.isRequired,
   isMobile: React.PropTypes.bool.isRequired,
-  scrollPosition: React.PropTypes.number.isRequired,
+  scrollPositionObs: React.PropTypes.object.isRequired,
 };
 Item.propTypes = {
   imageSrc: React.PropTypes.string.isRequired,

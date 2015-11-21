@@ -3,7 +3,6 @@ var s = getStyle();
 export default class Item extends React.Component{
   constructor(props) {
     super(props);
-    this.state = {isVisible: false};
     this.renderSkills = this.renderSkills.bind(this);
     this.getContainerClass = this.getContainerClass.bind(this);
     this.getContainerStyle = this.getContainerStyle.bind(this);
@@ -37,17 +36,24 @@ export default class Item extends React.Component{
       );
     });
   }
-  componentDidUpdate(prevProps, prevState, prevContext) {
-    if ((prevContext.scrollPosition !== this.context.scrollPosition) && !this.state.isVisible){
-      if(this.context.scrollPosition > ($(React.findDOMNode(this)).offset().top - 500)) {
-        $(React.findDOMNode(this.refs.container)).velocity({translateX: 0, opacity: 1}, {duration: 400});
-        this.setState({isVisible: true});
-      }
-    }
-  }
   componentDidMount() {
     $(React.findDOMNode(this.refs.container)).velocity(
       {translateX: this.context.isMobile ? '0px' : this.props.isLeft ? '-100px' : '100px', opacity: 0}, {duration: 0});
+
+    let isVisible = false;
+    this.displayStream = this.context.scrollPositionObs
+      .startWith(window.pageYOffset)
+      .filter(() => $(React.findDOMNode(this)).offset().top !== 0)
+      .filter(() => !isVisible)
+      .filter(() => window.pageYOffset >= ($(React.findDOMNode(this)).offset().top - 500))
+      .map(() => isVisible = true)
+      .subscribe(() => this.handleDisplay());
+  }
+  handleDisplay() {
+    $(React.findDOMNode(this.refs.container)).velocity({translateX: 0, opacity: 1}, {duration: 400});
+  }
+  componentWillUnmount() {
+    this.displayStream.dispose();
   }
   render() {
 
@@ -76,7 +82,7 @@ export default class Item extends React.Component{
 Item.contextTypes = {
   s: React.PropTypes.func.isRequired,
   isMobile: React.PropTypes.bool.isRequired,
-  scrollPosition: React.PropTypes.number.isRequired,
+  scrollPositionObs: React.PropTypes.object.isRequired,
 };
 Item.propTypes = {
   isLast: React.PropTypes.bool.isRequired,

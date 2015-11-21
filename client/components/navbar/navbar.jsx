@@ -8,16 +8,20 @@ export default class Navbar extends React.Component{
     };
   }
   componentDidMount() {
-    $(React.findDOMNode(this)).velocity({translateY: -60}, 0);
+    $(React.findDOMNode(this)).velocity({opacity: 0}, 0);
+    this.displayStream = this.context.scrollPositionObs
+      .filter(() => ((window.pageYOffset >= 600) !== this.state.isFixed))
+      .subscribe(() => {
+        this.handleDisplay(window.pageYOffset >= 600);
+        this.setState({isFixed: window.pageYOffset >= 600});
+      });
   }
-  componentDidUpdate(prevProps, prevState, prevContext) {
-    if (prevContext.scrollPosition !== this.context.scrollPosition) {
-      this.setState({isVisible: this.context.scrollPosition > 600});
-    }
-    if (this.state.isVisible !== prevState.isVisible) {
-      $(React.findDOMNode(this)).velocity({translateY: (this.context.scrollPosition > 600) ? 0 : -60},
-      UI.duration * 4);
-    }
+  componentWillUnmount() {
+    this.displayStream.dispose();
+  }
+  handleDisplay(isVisible) {
+    $(React.findDOMNode(this)).velocity('stop');
+    $(React.findDOMNode(this)).velocity({opacity: isVisible ? 1 : 0}, UI.duration * 2);
   }
   render() {
 
@@ -44,7 +48,7 @@ export default class Navbar extends React.Component{
 
 Navbar.contextTypes = {
   s: React.PropTypes.func.isRequired,
-  scrollPosition: React.PropTypes.number.isRequired,
+  scrollPositionObs: React.PropTypes.object.isRequired,
 };
 
 Navbar.propTypes = {
