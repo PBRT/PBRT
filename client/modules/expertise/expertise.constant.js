@@ -5,7 +5,7 @@ module.exports = {
       title: 'Front End',
       subtitle: 'I develop front-end web applications with ' +
       'latest technologies like ReactJS, Webpack or VelocityJS. ' +
-      'I have a solid knowledge of JS ES6 and all others classics Javascript libraries.',
+      'I have a solid knowledge of JS ES6 and love try new stuff like Elm or RxJS.',
     },
     {
       imageSrc: 'responsive.jpg',

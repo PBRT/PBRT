@@ -10,6 +10,7 @@ export default class Navbar extends React.Component{
   componentDidMount() {
     $(React.findDOMNode(this)).velocity({opacity: 0}, 0);
     this.displayStream = this.context.scrollPositionObs
+      .startWith(window.pageYOffset)
       .filter(() => ((window.pageYOffset >= 600) !== this.state.isFixed))
       .subscribe(() => {
         this.handleDisplay(window.pageYOffset >= 600);

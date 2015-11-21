@@ -12,6 +12,7 @@ export default class Item extends React.Component{
   componentDidMount() {
     if (this.context.isMobile) { this.setState({isVisible: true}); };
     this.displayStream = this.context.scrollPositionObs
+      .startWith(window.pageYOffset)
       .filter(() => !this.state.isFixed)
       .filter(() => window.pageYOffset >= $(React.findDOMNode(this)).position().top + 100)
       .subscribe(() => this.setState({isVisible: true}));
