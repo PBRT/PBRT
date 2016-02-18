@@ -14,6 +14,14 @@ import Loader from './components/loader/loader.jsx';
 import Contact from './modules/contact/contact.jsx';
 import FastClick from 'fastclick';
 
+const ascii =
+'.______   .______   .______     .___________.\n' +
+'|   _  \\  |   _  \\  |   _  \\    |           |\n' +
+'|  |_)  | |  |_)  | |  |_)  |   `---|  |----`\n' +
+'|   ___/  |   _  <  |      /        |  |     \n' +
+'|  |      |  |_)  | |  |\\  \\----.   |  |     \n' +
+'| _|      |______/  | _| `._____|   |__|     \n' +
+'                                             ';
 var s = getStyle();
 
 // Main class - App
@@ -36,6 +44,14 @@ class App extends React.Component {
     this.handleStyle = this.handleStyle.bind(this);
     this.handleResize = this.handleResize.bind(this);
     this.debouncedHandleResize = _.debounce(() => {this.handleResize();}, UI.wait);
+
+    // GOODIES
+    /*eslint-disable */
+    console.log(ascii);
+    console.log('Hi there! I built this website with ES6/React, powered by webpack,' +
+    ' animated with velocity! Get in touch in the contact section or or linkedIn, I answer fast ;)');
+    console.log('https://uk.linkedin.com/in/pierre-beard-4b069062');
+    /*eslint-enable */
   }
   getChildContext() {
     return {
