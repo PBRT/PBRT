@@ -19,5 +19,15 @@ module.exports = {
         'with. I really enjoyed working with Pierre and would recommend him without a doubt!',
       link: 'https://www.linkedin.com/in/sandramileikyte'
     },
+    {
+      name: 'Gareth Williams - Freelance Creative Technologist',
+      text:
+        'Pierre is a dedicated, hard working individual, whom I had the pleasure of working with at WorkAngel.' +
+        ' He showed himself as a capable individual and superb team player, often staying late to help others ' +
+        'or help complete tickets. His level of knowledge of JavaScript is excellent and improving constantly,' +
+        ' no doubt helped hugely by his love of web development, evidenced in his side projects. ' +
+        'I\'d work with Pierre again in a heartbeat.',
+      link: 'https://au.linkedin.com/in/gareth-williams-aa405314',
+    },
   ],
 };
