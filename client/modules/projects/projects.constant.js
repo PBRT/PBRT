@@ -1,5 +1,58 @@
 module.exports = {list: [
   {
+    name: 'ReacToGo',
+    link: 'https://reactogo.herokuapp.com',
+    gitLink: 'http://github.com/PBRT/reactogo',
+    description: 'Kickstarter including Redux with Immutable state, built with WebPack, ready to go!',
+    fullDescription:
+      'I have built this project for start faster apps. It contains everything needed for' +
+      'build a performant app quickly. Redux main state immutable. React router connected with redux.' +
+      'Shared UI-Kit between JS and Stylus. Simply clone it and use it!',
+    imageSrc: 'reactogo.png',
+    techs: [
+      {name: 'Redux', link: 'redux.js.org'},
+      {name: 'React', link: 'https://facebook.github.io/react/'},
+      {name: 'WebPack', link: 'http://webpack.github.io/'},
+      {name: 'ImmutableJS', link: 'https://facebook.github.io/immutable-js/'},
+      {name: 'Firebase', link: 'https://www.firebase.com/'},
+    ],
+    techsColor: '#00BD9C',
+  },
+  {
+    name: 'Timgur',
+    link: 'https://timgur.herokuapp.com',
+    gitLink: 'http://github.com/PBRT/timgur',
+    description: 'Tinder-like application for IMGUR',
+    fullDescription:
+      'A little tinder client where the user can swipe left/right for like or dislike images,' +
+      'and see the list of images he liked.' +
+      'I built this app for fun using ReacToGo with Redux.',
+    imageSrc: 'timgur.png',
+    techs: [
+      {name: 'Redux', link: 'redux.js.org'},
+      {name: 'React', link: 'https://facebook.github.io/react/'},
+      {name: 'WebPack', link: 'http://webpack.github.io/'},
+    ],
+    techsColor: '#3498db',
+  },
+  {
+    name: 'Yplan-POC',
+    link: 'https://yplan-poc.herokuapp.com/',
+    gitLink: 'http://github.com/PBRT/yplan-poc',
+    description: 'Proof of concept of the YPLAN app with React Motion transitions',
+    fullDescription:
+      'I wanted to use React-Motions on route transitions on a concrete example. I re-built a small' +
+      'part of the yplan application with my kickstarter ReacToGo and work on this transitions.' +
+      'It was a good opportunity to learn a lot about UI and animations!',
+    imageSrc: 'yplan.png',
+    techs: [
+      {name: 'React', link: 'https://facebook.github.io/react/'},
+      {name: 'React-Motion', link: 'https://github.com/chenglou/react-motion'},
+      {name: 'WebPack', link: 'http://webpack.github.io/'},
+    ],
+    techsColor: '#EC5B44',
+  },
+  {
     name: 'Santander signup',
     imageSrc: 'santander.jpg',
     link: 'http://workangel.com/santander',

@@ -32,6 +32,17 @@ export default class Footer extends React.Component{
           </a>
           <a
             style={s.link}
+            onMouseEnter={this.animateComp.bind(null, 'medium', true, 'mouse')}
+            onMouseLeave={this.animateComp.bind(null, 'medium', false, 'mouse')}
+            onTouchStart={this.animateComp.bind(null, 'medium', true, 'touch')}
+            onTouchEnd={this.animateComp.bind(null, 'medium', false, 'touch')}
+            ref='medium'
+            href='https://medium.com/@PierreBeard'
+            target='_blank'>
+            <img style={this.context.s(s.icon)} src={require('./assets/Medium.svg')} />
+          </a>
+          <a
+            style={s.link}
             ref='twit'
             onMouseEnter={this.animateComp.bind(null, 'twit', true, 'mouse')}
             onMouseLeave={this.animateComp.bind(null, 'twit', false, 'mouse')}

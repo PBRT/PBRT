@@ -39,6 +39,9 @@ export default class Navbar extends React.Component{
             <div style={s.contact}>
               <a href='/resume' style={s.link} download='PierreBeardResume' target='_blank'>Resume</a>
             </div>
+            <div style={s.contact}>
+              <a href='https://medium.com/@PierreBeard' target='_blank' style={s.link}>Blog</a>
+            </div>
             <div style={s.contact} onClick={this.props.scrollTo.bind(null, 'contact', -60)}>Contact</div>
           </div>
         </div>
