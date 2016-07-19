@@ -43,11 +43,19 @@ app.post('/mail', function(req, res) {
   if (req.body.email && req.body.name && req.body.details) {
     var params = {
       'message': {
-        'from_email':req.body.email,
+        'from_email': 'pbrt@pbrt.co',
         'to':[{'email':'beardpierre@gmail.com'}],
-        'subject': req.body.name + ' from PBRT',
+        'subject': 'subj: ' + req.body.name + ' email: '  + req.body.email + ' from PBRT',
         'text': req.body.details,
-      }
+        'merge': true,
+        'merge_language': 'mailchimp',
+        'global_merge_vars': [].concat(
+          req.body.mergeVars,
+          {name: 'sender', content: req.body.email},
+          {name: 'text', content: req.body.details}),
+      },
+      'template_name': 'pbrt',
+      'template_content': [],
     };
 
     mandrill_client.messages.send(params, function(resMandrill) {
