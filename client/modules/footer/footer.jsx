@@ -16,7 +16,7 @@ export default class Footer extends React.Component{
       <div style={this.context.s(s.footer)}>
         <div style={this.context.s(s.col)}>
           <div style={this.context.s(s.name)} className='small text-white'>Pierre Beard</div>
-          <div className='small text-white' style={this.context.s(s.name)}>2015 London</div>
+          <div className='small text-white' style={this.context.s(s.name)}>2017 London</div>
         </div>
         <div style={this.context.s(s.colImages)} className='text-right'>
           <a

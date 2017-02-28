@@ -1,4 +1,22 @@
 module.exports = {list: [
+  // {
+  //   name: 'Hummingbird LTD',
+  //   link: 'https://humming-bird.co.uk',
+  //   description: 'The social shipping of 2017. Web application to connect traveller and package senders.',
+  //   fullDescription:
+  //     'I built this project from scratch in collaboration with a UI/UX designer. Web application to' +
+  //     'connect people who commutes between London/Paris with people who wants some items from London/Paris.' +
+  //     ' Avoid to pay more than what you send and meet the community. Release in April 2017.'
+  //   imageSrc: 'reactogo.png',
+  //   techs: [
+  //     {name: 'Redux', link: 'redux.js.org'},
+  //     {name: 'React', link: 'https://facebook.github.io/react/'},
+  //     {name: 'WebPack', link: 'http://webpack.github.io/'},
+  //     {name: 'ImmutableJS', link: 'https://facebook.github.io/immutable-js/'},
+  //     {name: 'MongoDB', link: 'https://www.mongodb.com'},
+  //   ],
+  //   techsColor: '#22C19D',
+  // },
   {
     name: 'ReacToGo',
     link: 'https://reactogo.herokuapp.com',
