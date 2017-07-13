@@ -63,5 +63,8 @@
     "url-loader": "0.5.6",
     "velocity-animate": "1.2.2",
     "webpack": "1.12.2"
+  },
+  "engines": {
+    "node": "6.11.1"
   }
 }
